@@ -1,7 +1,7 @@
 package config
 
 import (
-	"github.com/drep-project/drepcli/core/ethhexutil"
+	"github.com/drep-project/drepcli/ethhexutil"
 	"github.com/drep-project/drepcli/mycrypto"
 	"github.com/drep-project/drepcli/util"
 	"github.com/drep-project/drepcli/util/flags"

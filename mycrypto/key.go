@@ -1,7 +1,7 @@
 package mycrypto
 
 import (
-    "github.com/drep-project/drepcli/core/ethhexutil"
+    "github.com/drep-project/drepcli/ethhexutil"
     "bytes"
     "github.com/pkg/errors"
     "math/big"

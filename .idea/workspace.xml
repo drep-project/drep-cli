@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1226e688-7d6b-4cc6-bfc7-a91c531da3d4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/common/PK.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/common/big.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/big.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/common/common.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/common.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/common/integer.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/integer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/bn256_fast.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/bn256_fuzz.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/bn256_slow.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/cloudflare/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/cloudflare/bn256.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/cloudflare/bn256_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/cloudflare/constants.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/cloudflare/curve.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/cloudflare/example_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/cloudflare/gfp.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/cloudflare/gfp12.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/cloudflare/gfp2.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/cloudflare/gfp6.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/cloudflare/gfp_amd64.s" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/cloudflare/gfp_arm64.s" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/cloudflare/gfp_decl.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/cloudflare/gfp_generic.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/cloudflare/gfp_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/cloudflare/lattice.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/cloudflare/lattice_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/cloudflare/main_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/cloudflare/mul_amd64.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/cloudflare/mul_arm64.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/cloudflare/mul_bmi2_amd64.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/cloudflare/optate.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/cloudflare/twist.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/google/bn256.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/google/bn256_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/google/constants.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/google/curve.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/google/example_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/google/gfp12.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/google/gfp2.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/google/gfp6.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/google/main_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/google/optate.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/bn256/google/twist.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/crypto.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/crypto_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/ecies/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/ecies/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/ecies/README" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/ecies/ecies.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/ecies/ecies_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/ecies/params.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/curve.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/ext.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/COPYING" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/Makefile.am" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/TODO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/autogen.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/build-aux/m4/ax_jni_include_dir.m4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/build-aux/m4/ax_prog_cc_for_build.m4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/build-aux/m4/bitcoin_secp.m4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/configure.ac" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/contrib/lax_der_parsing.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/contrib/lax_der_parsing.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/contrib/lax_der_privatekey_parsing.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/contrib/lax_der_privatekey_parsing.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/include/secp256k1.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/include/secp256k1_ecdh.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/include/secp256k1_recovery.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/libsecp256k1.pc.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/obj/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/sage/group_prover.sage" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/sage/secp256k1.sage" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/sage/weierstrass_prover.sage" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/asm/field_10x26_arm.s" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/basic-config.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/bench.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/bench_ecdh.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/bench_internal.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/bench_recover.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/bench_schnorr_verify.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/bench_sign.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/bench_verify.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/ecdsa.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/ecdsa_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/eckey.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/eckey_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/ecmult.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/ecmult_const.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/ecmult_const_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/ecmult_gen.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/ecmult_gen_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/ecmult_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/field.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/field_10x26.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/field_10x26_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/field_5x52.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/field_5x52_asm_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/field_5x52_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/field_5x52_int128_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/field_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/gen_context.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/group.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/group_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/hash.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/hash_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/java/org/bitcoin/NativeSecp256k1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/java/org/bitcoin/NativeSecp256k1Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/java/org/bitcoin/NativeSecp256k1Util.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/java/org/bitcoin/Secp256k1Context.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/java/org_bitcoin_NativeSecp256k1.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/java/org_bitcoin_NativeSecp256k1.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/java/org_bitcoin_Secp256k1Context.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/java/org_bitcoin_Secp256k1Context.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/modules/ecdh/Makefile.am.include" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/modules/ecdh/main_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/modules/ecdh/tests_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/modules/recovery/Makefile.am.include" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/modules/recovery/main_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/modules/recovery/tests_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/num.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/num_gmp.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/num_gmp_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/num_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/scalar.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/scalar_4x64.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/scalar_4x64_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/scalar_8x32.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/scalar_8x32_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/scalar_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/scalar_low.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/scalar_low_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/secp256k1.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/testrand.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/testrand_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/tests.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/tests_exhaustive.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/libsecp256k1/src/util.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/panic_cb.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/secp256.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/secp256k1/secp256_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/sha3/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/sha3/PATENTS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/sha3/doc.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/sha3/hashes.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/sha3/keccakf.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/sha3/keccakf_amd64.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/sha3/keccakf_amd64.s" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/sha3/register.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/sha3/sha3.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/sha3/sha3_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/sha3/shake.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/sha3/testdata/keccakKats.json.deflate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/sha3/xor.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/sha3/xor_generic.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/sha3/xor_unaligned.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/signature_cgo.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/signature_nocgo.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethcrypto/signature_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethhexutil/hexutil.go" beforeDir="false" afterPath="$PROJECT_DIR$/ethhexutil/hexutil.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethhexutil/hexutil_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/ethhexutil/hexutil_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethhexutil/json.go" beforeDir="false" afterPath="$PROJECT_DIR$/ethhexutil/json.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethhexutil/json_example_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/ethhexutil/json_example_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethhexutil/json_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/ethhexutil/json_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethrlp/decode.go" beforeDir="false" afterPath="$PROJECT_DIR$/ethrlp/decode.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethrlp/decode_tail_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/ethrlp/decode_tail_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethrlp/decode_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/ethrlp/decode_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethrlp/doc.go" beforeDir="false" afterPath="$PROJECT_DIR$/ethrlp/doc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethrlp/encode.go" beforeDir="false" afterPath="$PROJECT_DIR$/ethrlp/encode.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethrlp/encode_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/ethrlp/encode_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethrlp/encoder_example_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/ethrlp/encoder_example_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethrlp/raw.go" beforeDir="false" afterPath="$PROJECT_DIR$/ethrlp/raw.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethrlp/raw_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/ethrlp/raw_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ethrlp/typecache.go" beforeDir="false" afterPath="$PROJECT_DIR$/ethrlp/typecache.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mycrypto/key.go" beforeDir="false" afterPath="$PROJECT_DIR$/mycrypto/key.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/types.go" beforeDir="false" afterPath="$PROJECT_DIR$/rpc/types.go" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/integer.go">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/config.go">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/rpcconfig.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1368" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/drepclient/console/prompter.go">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/drepclient/console/bridge.go">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/drepclient/jsre/completion_test.go">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/drepclient/jsre/jsre.go">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/drepclient/jsre/jsre_test.go">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/drepclient/jsre/pretty.go">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/rpc/rest.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+              <folding>
+                <element signature="e#13#89#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="GOROOT" path="C:\Go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/common/PK.go" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="915" />
+    <option name="height" value="1047" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="drepcli" type="b2602c69:ProjectViewProjectNode" />
+              <item name="drepcli" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="configurable.Global.GOPATH.is.expanded" value="true" />
+    <property name="configurable.Project.GOPATH.is.expanded" value="true" />
+    <property name="go.gopath.indexing.explicitly.defined" value="true" />
+    <property name="go.vendoring.notification.had.been.shown" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="go.sdk" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Drep\Desktop\goproject\src\github.com\drep-project\drepcli" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/common/PK.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ethhexutil/hexutil_test.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ethhexutil/hexutil.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ethhexutil/json.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ethhexutil/json_example_test.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ethhexutil/json_test.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ethrlp/decode.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ethrlp/decode_test.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ethrlp/encode.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ethrlp/encoder_example_test.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ethrlp/decode_tail_test.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drepclient/drepclient.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/big.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/common.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/integer.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/config.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/rpcconfig.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1368" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drepclient/console/prompter.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drepclient/console/bridge.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drepclient/jsre/completion_test.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drepclient/jsre/jsre.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drepclient/jsre/jsre_test.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drepclient/jsre/pretty.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpc/rest.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="e#13#89#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
