@@ -1,0 +1,37 @@
+package bean
+
+import "github.com/drep-project/drepcli/mycrypto"
+
+type PeerInfo struct {
+	Pk                   *mycrypto.Point
+	Ip                   string
+	Port                 int32
+}
+
+type PeerInfoList struct {
+	List                 []*PeerInfo
+}
+
+type FirstPeerInfoList struct {
+	List                 []*PeerInfo
+}
+
+type BlockReq struct {
+	Pk                   *mycrypto.Point
+	Height               int64
+}
+
+type BlockResp struct {
+	Height               int64
+	Blocks               []*Block
+}
+
+type Ping struct {
+}
+
+type Pong struct {
+}
+
+type OfflinePeers struct {
+	List                 []*PeerInfo
+}
