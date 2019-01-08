@@ -25,6 +25,7 @@ import (
 	"strings"
 	"path/filepath"
 	"gopkg.in/urfave/cli.v1"
+	"github.com/drep-project/drepcli/common"
 )
 
 const (
@@ -288,15 +289,7 @@ func MakeConsolePreloads(ctx *cli.Context) []string {
 
 	assets := ctx.GlobalString(JSpathFlag.Name)
 	for _, file := range strings.Split(ctx.GlobalString(PreloadJSFlag.Name), ",") {
-		preloads = append(preloads, AbsolutePath(assets, strings.TrimSpace(file)))
+		preloads = append(preloads, common.AbsolutePath(assets, strings.TrimSpace(file)))
 	}
 	return preloads
-}
-
-// AbsolutePath returns datadir + filename, or filename if it is absolute.
-func AbsolutePath(datadir string, filename string) string {
-	if filepath.IsAbs(filename) {
-		return filename
-	}
-	return filepath.Join(datadir, filename)
 }

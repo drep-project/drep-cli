@@ -1,10 +1,11 @@
 package config
 
 import (
+	"BlockChainTest/util"
 	"github.com/drep-project/drepcli/ethhexutil"
 	"github.com/drep-project/drepcli/mycrypto"
-	"github.com/drep-project/drepcli/util"
-	"github.com/drep-project/drepcli/util/flags"
+	"github.com/drep-project/drepcli/common"
+	"github.com/drep-project/drepcli/drepclient/flags"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -93,14 +94,14 @@ func loadConfigFile(ctx *cli.Context, nodeConfig *NodeConfig) error {
 
 	if ctx.GlobalIsSet(ConfigFileFlag.Name) {
 		file := ctx.GlobalString(ConfigFileFlag.Name)
-		if util.IsFileExists(file) {
+		if common.IsFileExists(file) {
 			//report error when user specify
 			return errors.New("specify config file not exist")
 		}
 		configFile = file
 	}
 
-	if !util.IsFileExists(configFile) {
+	if !common.IsFileExists(configFile) {
 		//use default
 		return nil
 	}

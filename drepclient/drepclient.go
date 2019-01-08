@@ -19,19 +19,16 @@ package main
 
 import (
 	"fmt"
-	"math"
-	"os"
-	"path"
-	godebug "runtime/debug"
-	"strconv"
-	"strings"
-
 	"github.com/drep-project/drepcli/config"
 	"github.com/drep-project/drepcli/drepclient/console"
 	"github.com/drep-project/drepcli/log"
 	"github.com/drep-project/drepcli/rpc"
+	"math"
+	"os"
+	godebug "runtime/debug"
+	"strconv"
 
-	"github.com/drep-project/drepcli/util/flags"
+	"github.com/drep-project/drepcli/drepclient/flags"
 	"github.com/elastic/gosigar"
 	"gopkg.in/urfave/cli.v1"
 )
@@ -140,12 +137,6 @@ func remoteConsole(ctx *cli.Context) error {
 // The check for empty endpoint implements the defaulting logic
 // for "drep attach" and "drep monitor" with no argument.
 func dialRPC(cfg *config.NodeConfig, endpoint string) (*rpc.Client, error) {
-	if endpoint == "" {
-		endpoint = path.Join(cfg.HomeDir, config.DefaultIPCEndpoint(config.ClientIdentifier))
-	} else if strings.HasPrefix(endpoint, "rpc:") || strings.HasPrefix(endpoint, "ipc:") {
-		// Backwards compatibility with drep < 1.5 which required
-		// these prefixes.
-		endpoint = endpoint[4:]
-	}
+	endpoint = endpoint[4:]
 	return rpc.Dial(endpoint)
 }
