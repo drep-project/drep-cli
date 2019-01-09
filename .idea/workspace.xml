@@ -1,24 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1226e688-7d6b-4cc6-bfc7-a91c531da3d4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/common/file.go" afterDir="false" />
+    <list default="true" id="802a0e7b-6fd2-4ec0-acdf-7ea170d9dec5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drepclient/drepclient.go" beforeDir="false" afterPath="$PROJECT_DIR$/drepclient/drepclient.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/appdata.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/appdata.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/file.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/file.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/logconfig.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/rpcconfig.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/types.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drepclient/console/bridge.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drepclient/console/console.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drepclient/console/prompter.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drepclient/console/testdata/exec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drepclient/console/testdata/preload.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drepclient/drepclient.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drepclient/flags/customflags.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drepclient/flags/customflags_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drepclient/flags/flags.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drepclient/jsre/completion.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drepclient/jsre/completion_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drepclient/jsre/deps/bignumber.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drepclient/jsre/deps/bindata.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drepclient/jsre/deps/deps.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drepclient/jsre/deps/drep.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drepclient/jsre/jsre.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drepclient/jsre/jsre_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drepclient/jsre/pretty.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ethhexutil/hexutil.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ethhexutil/hexutil_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ethhexutil/json.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ethhexutil/json_example_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ethhexutil/json_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ethrlp/decode.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ethrlp/decode_tail_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ethrlp/decode_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ethrlp/doc.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ethrlp/encode.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ethrlp/encode_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ethrlp/encoder_example_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ethrlp/raw.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ethrlp/raw_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ethrlp/typecache.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fg.text.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/log/handler.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/log.go" beforeDir="false" afterPath="$PROJECT_DIR$/log/log.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc/endpoints.go" beforeDir="false" afterPath="$PROJECT_DIR$/rpc/endpoints.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc/http.go" beforeDir="false" afterPath="$PROJECT_DIR$/rpc/http.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc/http_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/rpc/http_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc/ipc.go" beforeDir="false" afterPath="$PROJECT_DIR$/rpc/ipc.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc/ipc_js.go" beforeDir="false" afterPath="$PROJECT_DIR$/rpc/ipc_js.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc/ipc_unix.go" beforeDir="false" afterPath="$PROJECT_DIR$/rpc/ipc_unix.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc/ipc_windows.go" beforeDir="false" afterPath="$PROJECT_DIR$/rpc/ipc_windows.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/appdata.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/appdata.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/file.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/flags/customflags.go" beforeDir="false" afterPath="$PROJECT_DIR$/drepclient/flags/customflags.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/flags/customflags_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/drepclient/flags/customflags_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/flags/flags.go" beforeDir="false" afterPath="$PROJECT_DIR$/drepclient/flags/flags.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mycrypto/elliptic.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mycrypto/keccakf.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mycrypto/key.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mycrypto/key.pb.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mycrypto/op.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mycrypto/sha256.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mycrypto/sha3.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mycrypto/xor_unaligned.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/client.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/client_example_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/client_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/doc.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/endpoints.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/errors.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/http.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/http_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/inproc.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/ipc.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/ipc_js.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/ipc_unix.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/ipc_windows.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/json.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/json_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/rest.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/rpcserver.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/server.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/server_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/stdio.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/subscription.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/subscription_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/types.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/types_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/utils.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/utils_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/websocket.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/websocket_test.go" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,94 +92,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/log/log.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="912">
-              <caret line="48" column="11" selection-start-line="48" selection-start-column="4" selection-end-line="48" selection-end-column="11" />
-              <folding>
-                <element signature="e#13#180#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/log/doc.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1026" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/log/format.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-703">
-              <caret line="2" column="8" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/log/handler.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="16" column="1" selection-start-line="2" selection-start-column="7" selection-end-line="16" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/log/root.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="19" column="15" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/log/syslog.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="50" column="29" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="29" />
-              <folding>
-                <element signature="e#40#75#0" expanded="true" />
-                <element signature="n#!!block;n#sharedSyslog#0" />
-                <element signature="n#!!block;n#SyslogNetHandler#1" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/log/logger.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="207" column="29" lean-forward="true" selection-start-line="207" selection-start-column="29" selection-end-line="207" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/log/handler_glog.go">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/log/handler_go13.go">
+        <entry file="file://$PROJECT_DIR$/app.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/log/handler_go14.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" selection-start-line="8" selection-end-line="10" selection-end-column="1" />
+            <state relative-caret-position="76">
+              <caret line="4" column="38" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -131,10 +112,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>NewServer</find>
-      <find>mycrypto</find>
-      <find>Unmarshal</find>
-      <find>opts</find>
+      <find>wsGetConfig</find>
+      <find>RestController</find>
+      <find>StartRest</find>
+      <find>rpc</find>
+      <find>config</find>
+      <find>ChainIdType</find>
+      <find>derror.</find>
+      <find>Dial</find>
+      <find>MakeConfig</find>
+      <find>HTTPTimeouts</find>
+      <find>contentType</find>
+      <find>ParseBig256</find>
+      <find>LogDirFlag</find>
+      <find>DefaultHTTPHost</find>
+      <find>ClientIdentifier</find>
+      <find>DefaultIPCEndpoint</find>
+      <find>ErrBig256Range</find>
+      <find>serviceMethodSeparator</find>
+      <find>ErrEmptyString</find>
+      <find>ServiceMethodSeparator</find>
+      <find>common.Error</find>
+      <find>message</find>
+      <find>ConfigFileFlag</find>
+      <find>HomeDirFlag</find>
+      <find>DefaultDataDir</find>
+      <find>RootChain</find>
+      <find>ChainIdSize</find>
+      <find>dialRPC</find>
+      <find>remoteConsole</find>
+      <find>HTTPListenAddrFlag</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -147,27 +154,64 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/common/PK.go" />
-        <option value="$PROJECT_DIR$/drepclient/drepclient.go" />
-        <option value="$PROJECT_DIR$/util/file.go" />
-        <option value="$PROJECT_DIR$/util/flags/flags.go" />
-        <option value="$PROJECT_DIR$/rpc/ipc/ipc_windows.go" />
-        <option value="$PROJECT_DIR$/rpc/ipc/start.go" />
-        <option value="$PROJECT_DIR$/rpc/http/start.go" />
-        <option value="$PROJECT_DIR$/rpc/endpoints.go" />
-        <option value="$PROJECT_DIR$/rpc/inpro.go" />
-        <option value="$PROJECT_DIR$/mycrypto/key.go" />
-        <option value="$PROJECT_DIR$/fg.text.go" />
-        <option value="$PROJECT_DIR$/drepclient/flags/flags.go" />
-        <option value="$PROJECT_DIR$/config/config.go" />
+        <option value="$PROJECT_DIR$/rpc/types/rest.go" />
+        <option value="$PROJECT_DIR$/rpc/component/websocket_test.go" />
+        <option value="$PROJECT_DIR$/rpc/component/http_test.go" />
+        <option value="$PROJECT_DIR$/rpc/component/client_example_test.go" />
+        <option value="$PROJECT_DIR$/rpc/types/jsonrpcMessage.go" />
+        <option value="$PROJECT_DIR$/rpc/component/client.go" />
+        <option value="$PROJECT_DIR$/rpc/component/inproc.go" />
+        <option value="$PROJECT_DIR$/rpc/component/ipc.go" />
+        <option value="$PROJECT_DIR$/rpc/component/rest.go" />
+        <option value="$PROJECT_DIR$/rpc/component/websocket.go" />
+        <option value="$PROJECT_DIR$/rpc/component/ipc_js.go" />
+        <option value="$PROJECT_DIR$/rpc/component/ipc_unix.go" />
+        <option value="$PROJECT_DIR$/rpc/component/ipc_windows.go" />
+        <option value="$PROJECT_DIR$/derror/err.go" />
+        <option value="$PROJECT_DIR$/drepclient/component/console/console.go" />
+        <option value="$PROJECT_DIR$/drepclient/component/jsre/jsre.go" />
+        <option value="$PROJECT_DIR$/drepclient/types/executecontext.go" />
+        <option value="$PROJECT_DIR$/drepclient/types/types.go" />
         <option value="$PROJECT_DIR$/log/log.go" />
+        <option value="$PROJECT_DIR$/drepclient/service/drepclient.go" />
+        <option value="$PROJECT_DIR$/drepclient/types/service.go" />
+        <option value="$PROJECT_DIR$/app/cliservice.go" />
+        <option value="$PROJECT_DIR$/rpc/types/servercodec.go" />
+        <option value="$PROJECT_DIR$/rpc/types/server.go" />
+        <option value="$PROJECT_DIR$/rpc/types/rpcRequest.go" />
+        <option value="$PROJECT_DIR$/rpc/service/rpcserver.go" />
+        <option value="$PROJECT_DIR$/common/customflags_test.go" />
+        <option value="$PROJECT_DIR$/common/flags.go" />
+        <option value="$PROJECT_DIR$/common/customflags.go" />
+        <option value="$PROJECT_DIR$/rpc/component/http.go" />
+        <option value="$PROJECT_DIR$/log/logconfig.go" />
+        <option value="$PROJECT_DIR$/rpc/types/api.go" />
+        <option value="$PROJECT_DIR$/rpc/types/rpcservice.go" />
+        <option value="$PROJECT_DIR$/common/BlockNumber.go" />
+        <option value="$PROJECT_DIR$/common/hexutil.go" />
+        <option value="$PROJECT_DIR$/common/err.go" />
+        <option value="$PROJECT_DIR$/rpc/types/err.go" />
+        <option value="$PROJECT_DIR$/rpc/types/json.go" />
+        <option value="$PROJECT_DIR$/rpc/service/endpoints.go" />
+        <option value="$PROJECT_DIR$/drepclient/component/console/bridge.go" />
+        <option value="$PROJECT_DIR$/drepclient/types/flags/flags.go" />
+        <option value="$PROJECT_DIR$/app/context.go" />
+        <option value="$PROJECT_DIR$/drepclient/types/chaintype.go" />
+        <option value="$PROJECT_DIR$/rpc/types/rpcconfig.go" />
+        <option value="$PROJECT_DIR$/rpc/service/flags.go" />
+        <option value="$PROJECT_DIR$/drepclient/types/config.go" />
+        <option value="$PROJECT_DIR$/log/logService.go" />
+        <option value="$PROJECT_DIR$/rpc/service/rpcService.go" />
+        <option value="$PROJECT_DIR$/drepclient/service/cliservice.go" />
+        <option value="$PROJECT_DIR$/app.go" />
+        <option value="$PROJECT_DIR$/app/app.go" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1205" />
-    <option name="y" value="95" />
-    <option name="width" value="915" />
+    <option name="x" value="442" />
+    <option name="y" value="184" />
+    <option name="width" value="1545" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectView">
@@ -183,27 +227,6 @@
               <item name="drepcli" type="b2602c69:ProjectViewProjectNode" />
               <item name="drepcli" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="drepcli" type="b2602c69:ProjectViewProjectNode" />
-              <item name="drepcli" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="drepcli" type="b2602c69:ProjectViewProjectNode" />
-              <item name="drepcli" type="462c0819:PsiDirectoryNode" />
-              <item name="drepclient" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="drepcli" type="b2602c69:ProjectViewProjectNode" />
-              <item name="drepcli" type="462c0819:PsiDirectoryNode" />
-              <item name="drepclient" type="462c0819:PsiDirectoryNode" />
-              <item name="flags" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="drepcli" type="b2602c69:ProjectViewProjectNode" />
-              <item name="drepcli" type="462c0819:PsiDirectoryNode" />
-              <item name="log" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -216,22 +239,21 @@
     <property name="configurable.Global.GOPATH.is.expanded" value="true" />
     <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
-    <property name="go.vendoring.notification.had.been.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="go.sdk" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Drep\Desktop\goproject\src\github.com\drep-project\drepcli\rpc\ipc" />
+      <recent name="C:\Users\Drep\Desktop\goproject\src\github.com\drep-project\drepcli" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Drep\Desktop\goproject\src\github.com\drep-project\drepcli\rpc" />
-      <recent name="C:\Users\Drep\Desktop\goproject\src\github.com\drep-project\drepcli\rpc\http" />
-      <recent name="C:\Users\Drep\Desktop\goproject\src\github.com\drep-project\drepcli\rpc\ipc" />
+      <recent name="C:\Users\Drep\Desktop\goproject\src\github.com\drep-project\drepcli\rpc\types" />
       <recent name="C:\Users\Drep\Desktop\goproject\src\github.com\drep-project\drepcli\common" />
-      <recent name="C:\Users\Drep\Desktop\goproject\src\github.com\drep-project\drepcli\drepclient" />
+      <recent name="C:\Users\Drep\Desktop\goproject\src\github.com\drep-project\drepcli\drepclient\service" />
+      <recent name="C:\Users\Drep\Desktop\goproject\src\github.com\drep-project\drepcli\drepclient\types" />
+      <recent name="C:\Users\Drep\Desktop\goproject\src\github.com\drep-project\drepcli\log" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -247,18 +269,19 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="go build fg.text.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="go build app.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="drepcli" />
       <working_directory value="$PROJECT_DIR$/" />
+      <parameters value="http://127.0.0.1:15645" />
       <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/fg.text.go" />
+      <filePath value="$PROJECT_DIR$/app.go" />
       <package value="github.com/drep-project/drepcli" />
       <directory value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build fg.text.go" />
+        <item itemvalue="Go Build.go build app.go" />
       </list>
     </recent_temporary>
   </component>
@@ -266,19 +289,19 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2510661" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14498934" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.329718" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.27006507" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.15384616" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -294,229 +317,404 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/fg.text.go</url>
+          <url>file://$PROJECT_DIR$/log/logService.go</url>
           <line>34</line>
-          <properties />
-          <option name="timeStamp" value="2" />
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/fg.text.go</url>
-          <line>26</line>
-          <properties />
-          <option name="timeStamp" value="8" />
+          <url>file://$PROJECT_DIR$/log/logService.go</url>
+          <line>38</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/rpc/service/rpcService.go</url>
+          <line>111</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/drepclient/service/cliservice.go</url>
+          <line>53</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/drepclient/service/cliservice.go</url>
+          <line>57</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/drepclient/service/cliservice.go</url>
+          <line>61</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/rpc/service/rpcService.go</url>
+          <line>63</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/rpc/service/rpcService.go</url>
+          <line>82</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/drepclient/service/cliservice.go</url>
+          <line>36</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/drepclient/service/cliservice.go</url>
+          <line>47</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/drepclient/service/cliservice.go</url>
+          <line>68</line>
+          <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/rpc/json.go">
+    <entry file="file://$PROJECT_DIR$/log/handler_go14.go">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/rpc/inproc.go">
+    <entry file="file://$PROJECT_DIR$/common/file.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/log.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="8" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="8" />
+        <state relative-caret-position="343">
+          <caret line="31" column="45" lean-forward="true" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rpc/errors.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rpc/websocket_test.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rpc/websocket.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rpc/subscription_test.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rpc/subscription.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rpc/http/start.go">
+    <entry file="file://$PROJECT_DIR$/log/logger.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="24" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="24" />
+        <state relative-caret-position="836">
+          <caret line="80" column="25" lean-forward="true" selection-start-line="80" selection-start-column="25" selection-end-line="80" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rpc/endpoints.go">
+    <entry file="file://$PROJECT_DIR$/drepclient/component/jsre/completion.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drepclient/component/jsre/completion_test.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drepclient/component/jsre/jsre.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drepclient/component/jsre/jsre_test.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drepclient/component/jsre/pretty.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drepclient/component/console/prompter.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/common.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="25" selection-start-line="25" selection-end-line="53" />
+        <state relative-caret-position="-1182">
+          <caret line="2" column="8" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/BlockNumber.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="798">
+          <caret line="42" column="18" lean-forward="true" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
           <folding>
-            <element signature="e#806#905#0" expanded="true" />
+            <element signature="e#16#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/hexutil.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
+          <folding>
+            <element signature="e#1265#1321#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpc/types/err.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="20" column="85" selection-start-line="20" selection-start-column="85" selection-end-line="20" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/big.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/integer.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpc/types/json.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="164" column="43" lean-forward="true" selection-start-line="164" selection-start-column="43" selection-end-line="164" selection-end-column="43" />
+          <folding>
+            <element signature="e#808#983#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drepclient/component/console/bridge.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="149" column="28" lean-forward="true" selection-start-line="149" selection-start-column="28" selection-end-line="149" selection-end-column="28" />
+          <folding>
+            <element signature="e#810#1044#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go/src/encoding/json/decode.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="95" column="5" selection-start-line="95" selection-start-column="5" selection-end-line="95" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drepclient/types/chaintype.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpc/types/utils.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpc/types/subscription_test.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpc/types/subscription.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="13" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpc/types/servercodec.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="28" column="1" lean-forward="true" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpc/types/server.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="453" column="55" selection-start-line="453" selection-start-column="55" selection-end-line="453" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpc/types/rpcservice.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpc/types/rpcRequest.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpc/service/endpoints.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="761">
+          <caret line="88" column="52" selection-start-line="88" selection-start-column="52" selection-end-line="88" selection-end-column="52" />
+          <folding>
             <element signature="n#!!block;n#StartWSEndpoint#0" />
             <element signature="n#!!block;n#StartIPCEndpoint#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rpc/ipc/start.go">
+    <entry file="file://$PROJECT_DIR$/rpc/service/flags.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="11" selection-start-column="11" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rpc/inpro.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rpc/server.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1339">
-          <caret line="78" column="16" selection-start-line="78" selection-start-column="15" selection-end-line="78" selection-end-column="16" />
+        <state relative-caret-position="433">
+          <caret line="71" column="5" lean-forward="true" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
           <folding>
-            <element signature="e#2082#2203#0" />
-            <element signature="e#2581#3640#0" />
-            <element signature="e#4119#6410#0" />
-            <element signature="e#6721#6806#0" />
-            <element signature="e#7142#7188#0" />
-            <element signature="e#7396#7633#0" />
+            <element signature="e#17#82#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ethrlp/decode.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ethrlp/decode_test.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ethrlp/doc.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ethrlp/encode.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ethrlp/encode_test.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ethrlp/raw.go">
+    <entry file="file://$PROJECT_DIR$/rpc/types/rpcconfig.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-513" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ethrlp/raw_test.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ethrlp/typecache.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ethhexutil/json.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-399" />
-      </provider>
-    </entry>
-    <entry file="file://C:/Go/src/crypto/elliptic/elliptic.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="346" column="12" selection-start-line="346" selection-start-column="4" selection-end-line="346" selection-end-column="12" />
+        <state relative-caret-position="1421">
+          <caret line="198" column="1" lean-forward="true" selection-start-line="198" selection-start-column="1" selection-end-line="198" selection-end-column="1" />
           <folding>
-            <element signature="e#5162#5258#0" />
+            <element signature="e#2864#3731#0" />
+            <element signature="e#3748#7807#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Go/src/crypto/elliptic/p256_asm.go">
+    <entry file="file://$PROJECT_DIR$/drepclient/types/flags/flags.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-216">
-          <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Go/src/runtime/asm_amd64.s">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="1336" lean-forward="true" selection-start-line="1336" selection-end-line="1336" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ethhexutil/hexutil.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="87" selection-start-line="87" selection-end-line="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mycrypto/key.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="85" selection-start-line="85" selection-end-line="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Go/src/encoding/hex/hex.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="112" selection-start-line="112" selection-end-line="112" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../ethereum/go-ethereum/crypto/crypto.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="154" selection-start-line="154" selection-end-line="154" />
+        <state relative-caret-position="509">
+          <caret line="142" column="5" selection-start-line="142" selection-start-column="5" selection-end-line="142" selection-end-column="5" />
           <folding>
-            <element signature="e#3328#3992#0" />
+            <element signature="e#817#955#0" expanded="true" />
+            <element signature="n#!!block;n#NewApp#0" />
+            <element signature="n#!!block;n#MigrateFlags#0" />
+            <element signature="n#!!block;n#Fatalf#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../ethereum/go-ethereum/crypto/secp256k1/secp256.go">
+    <entry file="file://$PROJECT_DIR$/drepclient/types/config.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="83" column="95" lean-forward="true" selection-start-line="83" selection-start-column="95" selection-end-line="83" selection-end-column="95" />
+        <state relative-caret-position="95">
+          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+          <folding>
+            <element signature="e#15#27#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Go/src/crypto/crypto.go">
+    <entry file="file://$PROJECT_DIR$/../../../gopkg.in/urfave/cli.v1/app.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="140" column="12" selection-start-line="140" selection-start-column="4" selection-end-line="140" selection-end-column="12" />
+        <state relative-caret-position="186">
+          <caret line="486" column="34" selection-start-line="486" selection-start-column="24" selection-end-line="486" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../ethereum/go-ethereum/crypto/signature_cgo.go">
+    <entry file="file://$PROJECT_DIR$/log/logconfig.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+        <state relative-caret-position="292">
+          <caret line="32" column="41" lean-forward="true" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
+          <folding>
+            <element signature="e#14#94#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Go/src/bytes/reader.go">
+    <entry file="file://$PROJECT_DIR$/rpc/types/utils_test.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../gopkg.in/urfave/cli.v1/funcs.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="155" selection-start-line="155" selection-end-line="155" />
+        <state relative-caret-position="175">
+          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Go/src/strings/reader.go">
+    <entry file="file://C:/Go/src/context/context.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="149" selection-start-line="149" selection-end-line="149" />
+        <state relative-caret-position="194">
+          <caret line="206" selection-start-line="206" selection-end-line="206" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go/src/net/url/url.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="464" selection-start-line="464" selection-end-line="464" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpc/component/client.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="132" selection-start-line="132" selection-end-line="132" />
+          <folding>
+            <element signature="e#812#1075#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpc/service/rpcService.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="111" selection-start-line="111" selection-end-line="111" />
+          <folding>
+            <element signature="e#17#326#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drepclient/component/console/console.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="93" column="33" lean-forward="true" selection-start-line="93" selection-start-column="33" selection-end-line="93" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/logService.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drepclient/service/cliservice.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="68" selection-start-line="68" selection-end-line="68" />
+          <folding>
+            <element signature="e#17#296#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/context.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1210">
+          <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+          <folding>
+            <element signature="e#13#66#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="43" column="29" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
+          <folding>
+            <element signature="e#13#76#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://C:/Go/src/crypto/ecdsa/ecdsa.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="233" column="5" selection-start-line="233" selection-start-column="5" selection-end-line="233" selection-end-column="5" />
+        <state relative-caret-position="264">
+          <caret line="212" column="23" selection-start-line="212" selection-start-column="23" selection-end-line="212" selection-end-column="23" />
           <folding>
             <element signature="e#691#852#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mycrypto/key.pb.go">
+    <entry file="file://$PROJECT_DIR$/../drepcli/common/common.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+        <state relative-caret-position="304">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="n#!!block;n#ToWordSize#0" />
+            <element signature="n#!!block;n#GetData#0" />
+            <element signature="n#!!block;n#AllZero#0" />
+            <element signature="n#!!block;n#GetDataBig#0" />
+            <element signature="n#!!block;n#LeftPadBytes#0" />
+            <element signature="n#!!block;n#RightPadBytes#0" />
+            <element signature="n#!!block;n#CopyBytes#0" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -527,6 +725,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://C:/Go/src/runtime/asm_amd64.s">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="521" selection-start-line="521" selection-end-line="521" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://C:/Go/src/runtime/panic.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -534,114 +739,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fg.text.go">
+    <entry file="file://$PROJECT_DIR$/app.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="33" column="29" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="29" />
-          <folding>
-            <element signature="e#17#113#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="76">
+          <caret line="4" column="38" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="38" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mycrypto/op.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="86" column="47" selection-start-line="86" selection-start-column="34" selection-end-line="86" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/drepclient/flags/flags.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1342">
-          <caret line="266" column="53" lean-forward="true" selection-start-line="266" selection-start-column="53" selection-end-line="266" selection-end-column="53" />
-          <folding>
-            <element signature="e#817#953#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/config.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="103" column="14" selection-start-line="103" selection-start-column="14" selection-end-line="103" selection-end-column="14" />
-          <folding>
-            <element signature="e#16#325#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/doc.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1026" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/format.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-703">
-          <caret line="2" column="8" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/handler.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="16" column="1" selection-start-line="2" selection-start-column="7" selection-end-line="16" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/root.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="19" column="15" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/syslog.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="50" column="29" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="29" />
-          <folding>
-            <element signature="e#40#75#0" expanded="true" />
-            <element signature="n#!!block;n#sharedSyslog#0" />
-            <element signature="n#!!block;n#SyslogNetHandler#1" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="912">
-          <caret line="48" column="11" selection-start-line="48" selection-start-column="4" selection-end-line="48" selection-end-column="11" />
-          <folding>
-            <element signature="e#13#180#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/logger.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="207" column="29" lean-forward="true" selection-start-line="207" selection-start-column="29" selection-end-line="207" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/handler_go14.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" selection-start-line="8" selection-end-line="10" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/handler_go13.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/handler_glog.go">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

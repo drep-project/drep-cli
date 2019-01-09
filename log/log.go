@@ -1,8 +1,7 @@
 package log
 
 import (
-	"github.com/drep-project/drepcli/common"
-	"github.com/drep-project/drepcli/config"
+	"BlockChainTest/util"
 	"github.com/mattn/go-colorable"
 	"github.com/mattn/go-isatty"
 	"io"
@@ -27,9 +26,9 @@ func init() {
 	glogger = NewGlogHandler(ostream)
 }
 
-func SetUp(cfg *config.LogConfig) error {
+func SetUp(cfg *LogConfig) error {
 	if cfg.DataDir != "" {
-		if !common.IsDirExists(cfg.DataDir) {
+		if !util.IsDirExists(cfg.DataDir) {
 			err :=os.MkdirAll(cfg.DataDir,0777)
 			if err!=nil{
 				return err
