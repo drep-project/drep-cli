@@ -2,13 +2,13 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/drep-project/drepcli/app"
 	cliService "github.com/drep-project/drepcli/drepclient/service"
 	"github.com/drep-project/drepcli/log"
 )
 
-
-func main (){
+func main() {
 	drepApp := app.NewApp()
 	drepApp.AddService(&log.LogServiice{})
 	//drepApp.AddService(&rpcService.RpcService{})
@@ -27,4 +27,3 @@ func main (){
 	}
 	return
 }
-

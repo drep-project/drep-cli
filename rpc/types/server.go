@@ -22,8 +22,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/drep-project/drepcli/log"
-	"github.com/ethereum/go-ethereum/p2p/netutil"
 	"io"
 	"mime"
 	"net"
@@ -35,15 +33,19 @@ import (
 	"sync"
 	"sync/atomic"
 
+	"github.com/drep-project/drepcli/log"
+	"github.com/ethereum/go-ethereum/p2p/netutil"
+
 	"github.com/deckarep/golang-set"
 	"golang.org/x/net/websocket"
 )
 
 const (
 	ContentType             = "application/json"
-	MetadataApi = "rpc"
+	MetadataApi             = "rpc"
 	maxRequestContentLength = 1024 * 512
 )
+
 // websocketJSONCodec is a custom JSON codec with payload size enforcement and
 // special number parsing.
 var websocketJSONCodec = websocket.Codec{
@@ -60,6 +62,7 @@ var websocketJSONCodec = websocket.Codec{
 		return dec.Decode(v)
 	},
 }
+
 // CodecOption specifies which type of messages this codec supports
 type CodecOption int
 
@@ -111,7 +114,6 @@ type Server struct {
 	codecsMu sync.Mutex
 	codecs   mapset.Set
 }
-
 
 // NewServer will create a new server instance with no registered handlers.
 func NewServer() *Server {
@@ -424,9 +426,6 @@ func (s *Server) execBatch(ctx context.Context, codec ServerCodec, requests []*s
 	}
 }
 
-
-
-
 // readRequest requests the next (batch) request from the codec. It will return the collection
 // of requests, an indication if the request was a batch, the invalid request identifier and an
 // error when the request could not be read/parsed.
@@ -561,8 +560,6 @@ func (t *httpReadWriteNopCloser) Close() error {
 	return nil
 }
 
-
-
 // ServeListener accepts connections on l, serving JSON-RPC on them.
 func (srv *Server) ServeListener(l net.Listener) error {
 	for {
@@ -577,7 +574,6 @@ func (srv *Server) ServeListener(l net.Listener) error {
 		go srv.ServeCodec(NewJSONCodec(conn), OptionMethodInvocation|OptionSubscriptions)
 	}
 }
-
 
 // WebsocketHandler returns a handler that serves JSON-RPC to WebSocket connections.
 //

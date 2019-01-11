@@ -17,9 +17,9 @@
 package service
 
 import (
-	"github.com/drep-project/drepcli/app"
 	"net"
 
+	"github.com/drep-project/drepcli/app"
 	"github.com/drep-project/drepcli/log"
 	rpcComponent "github.com/drep-project/drepcli/rpc/component"
 	rpcTypes "github.com/drep-project/drepcli/rpc/types"

@@ -28,11 +28,12 @@ import (
 	"strings"
 	"syscall"
 
-	jsre "github.com/drep-project/drepcli/drepclient/component/jsre"
-	rpcConponent "github.com/drep-project/drepcli/rpc/component"
 	"github.com/mattn/go-colorable"
 	"github.com/peterh/liner"
 	"github.com/robertkrimen/otto"
+
+	"github.com/drep-project/drepcli/drepclient/component/jsre"
+	rpcConponent "github.com/drep-project/drepcli/rpc/component"
 )
 
 var (
@@ -50,26 +51,26 @@ const DefaultPrompt = "> "
 // Config is the collection of configurations to fine tune the behavior of the
 // JavaScript console.
 type Config struct {
-	HomeDir  string       // Data directory to store the console history at
-	DocRoot  string       // Filesystem path from where to load JavaScript files from
-	Client   *rpcConponent.Client  // RPC client to execute Ethereum requests through
-	Prompt   string       // Input prompt prefix string (defaults to DefaultPrompt)
-	Prompter UserPrompter // Input prompter to allow interactive user feedback (defaults to TerminalPrompter)
-	Printer  io.Writer    // Output writer to serialize any display strings to (defaults to os.Stdout)
-	Preload  []string     // Absolute paths to JavaScript files to preload
+	HomeDir  string               // Data directory to store the console history at
+	DocRoot  string               // Filesystem path from where to load JavaScript files from
+	Client   *rpcConponent.Client // RPC client to execute Ethereum requests through
+	Prompt   string               // Input prompt prefix string (defaults to DefaultPrompt)
+	Prompter UserPrompter         // Input prompter to allow interactive user feedback (defaults to TerminalPrompter)
+	Printer  io.Writer            // Output writer to serialize any display strings to (defaults to os.Stdout)
+	Preload  []string             // Absolute paths to JavaScript files to preload
 }
 
 // Console is a JavaScript interpreted runtime environment. It is a fully fledged
 // JavaScript console attached to a running node via an external or in-process RPC
 // client.
 type Console struct {
-	client   *rpcConponent.Client  // RPC client to execute Ethereum requests through
-	jsre     *jsre.JSRE   // JavaScript runtime environment running the interpreter
-	prompt   string       // Input prompt prefix string
-	prompter UserPrompter // Input prompter to allow interactive user feedback
-	histPath string       // Absolute path to the console scrollback history
-	history  []string     // Scroll history maintained by the console
-	printer  io.Writer    // Output writer to serialize any display strings to
+	client   *rpcConponent.Client // RPC client to execute Ethereum requests through
+	jsre     *jsre.JSRE           // JavaScript runtime environment running the interpreter
+	prompt   string               // Input prompt prefix string
+	prompter UserPrompter         // Input prompter to allow interactive user feedback
+	histPath string               // Absolute path to the console scrollback history
+	history  []string             // Scroll history maintained by the console
+	printer  io.Writer            // Output writer to serialize any display strings to
 }
 
 // New initializes a JavaScript interpreted runtime environment and sets defaults
@@ -137,7 +138,7 @@ func (c *Console) init(preload []string) error {
 		return fmt.Errorf("api modules: %v", err)
 	}
 
-	flatten :=""
+	flatten := ""
 	for api := range apis {
 		if obj, err := c.jsre.Run("drep." + api); err == nil && obj.IsObject() {
 			// Enable drep.js built-in extension if available.
@@ -155,32 +156,32 @@ func (c *Console) init(preload []string) error {
 	// If the console is in interactive mode, instrument password related methods to query the user
 	if c.prompter != nil {
 		/*
-		//TODO   account manage
-		// Retrieve the account management object to instrument
-		personal, err := c.jsre.Get("personal")
-		if err != nil {
-			return err
-		}
-		// Override the openWallet, unlockAccount, newAccount and sign methods since
-		// these require user interaction. Assign these method in the Console the
-		// original drep callbacks. These will be called by the jeth.* methods after
-		// they got the password from the user and send the original drep request to
-		// the backend.
-		if obj := personal.Object(); obj != nil { // make sure the personal api is enabled over the interface
-			if _, err = c.jsre.Run(`jeth.openWallet = personal.openWallet;`); err != nil {
-				return fmt.Errorf("personal.openWallet: %v", err)
+			//TODO   account manage
+			// Retrieve the account management object to instrument
+			personal, err := c.jsre.Get("personal")
+			if err != nil {
+				return err
 			}
-			if _, err = c.jsre.Run(`jeth.unlockAccount = personal.unlockAccount;`); err != nil {
-				return fmt.Errorf("personal.unlockAccount: %v", err)
+			// Override the openWallet, unlockAccount, newAccount and sign methods since
+			// these require user interaction. Assign these method in the Console the
+			// original drep callbacks. These will be called by the jeth.* methods after
+			// they got the password from the user and send the original drep request to
+			// the backend.
+			if obj := personal.Object(); obj != nil { // make sure the personal api is enabled over the interface
+				if _, err = c.jsre.Run(`jeth.openWallet = personal.openWallet;`); err != nil {
+					return fmt.Errorf("personal.openWallet: %v", err)
+				}
+				if _, err = c.jsre.Run(`jeth.unlockAccount = personal.unlockAccount;`); err != nil {
+					return fmt.Errorf("personal.unlockAccount: %v", err)
+				}
+				if _, err = c.jsre.Run(`jeth.newAccount = personal.newAccount;`); err != nil {
+					return fmt.Errorf("personal.newAccount: %v", err)
+				}
+				if _, err = c.jsre.Run(`jeth.sign = personal.sign;`); err != nil {
+					return fmt.Errorf("personal.sign: %v", err)
+				}
+				obj.Set("newAccount", bridge.NewAccount)
 			}
-			if _, err = c.jsre.Run(`jeth.newAccount = personal.newAccount;`); err != nil {
-				return fmt.Errorf("personal.newAccount: %v", err)
-			}
-			if _, err = c.jsre.Run(`jeth.sign = personal.sign;`); err != nil {
-				return fmt.Errorf("personal.sign: %v", err)
-			}
-			obj.Set("newAccount", bridge.NewAccount)
-		}
 		*/
 	}
 	// The admin.sleep and admin.sleepBlocks are offered by the console and not by the RPC layer.

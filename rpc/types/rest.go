@@ -12,7 +12,7 @@ type Request struct {
 }
 
 type Response struct {
-	Success bool `json:"success"`
-	ErrorMsg string `json:"errMsg"`
-	Data interface{} `json:"body"`
+	Success  bool        `json:"success"`
+	ErrorMsg string      `json:"errMsg"`
+	Data     interface{} `json:"body"`
 }

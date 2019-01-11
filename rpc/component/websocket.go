@@ -27,11 +27,10 @@ import (
 	"strings"
 	"time"
 
-	rpcTypes "github.com/drep-project/drepcli/rpc/types"
 	"golang.org/x/net/websocket"
+
+	rpcTypes "github.com/drep-project/drepcli/rpc/types"
 )
-
-
 
 // NewWSServer creates a new websocket RPC server around an API provider.
 // Deprecated: use Server.WebsocketHandler

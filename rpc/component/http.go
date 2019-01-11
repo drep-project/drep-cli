@@ -62,7 +62,6 @@ func (hc *httpConn) Close() error {
 	return nil
 }
 
-
 // DefaultHTTPTimeouts represents the default timeout values used if further
 // configuration is not provided.
 var DefaultHTTPTimeouts = rpcTypes.HTTPTimeouts{

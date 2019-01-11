@@ -21,10 +21,10 @@ import (
 	crand "crypto/rand"
 	"encoding/binary"
 	"fmt"
-	"path/filepath"
 	"io"
 	"io/ioutil"
 	"math/rand"
+	"path/filepath"
 	"time"
 
 	"github.com/drep-project/drepcli/drepclient/component/jsre/deps"
@@ -277,8 +277,8 @@ func (re *JSRE) Get(ns string) (v otto.Value, err error) {
 
 // Set assigns value v to a variable in the JS environment.
 func (re *JSRE) Set(ns string, v interface{}) (err error) {
-	re.Do(func(vm *otto.Otto) { 
-		err = vm.Set(ns, v) 
+	re.Do(func(vm *otto.Otto) {
+		err = vm.Set(ns, v)
 	})
 	return err
 }
@@ -335,7 +335,6 @@ func compileAndRun(vm *otto.Otto, filename string, src interface{}) (otto.Value,
 	}
 	return vm.Run(script)
 }
-
 
 // AbsolutePath returns datadir + filename, or filename if it is absolute.
 func AbsolutePath(datadir string, filename string) string {

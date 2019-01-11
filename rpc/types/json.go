@@ -20,12 +20,13 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/drep-project/drepcli/log"
 	"io"
 	"reflect"
 	"strconv"
 	"strings"
 	"sync"
+
+	"github.com/drep-project/drepcli/log"
 )
 
 const (

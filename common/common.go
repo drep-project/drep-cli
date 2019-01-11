@@ -78,6 +78,7 @@ func CopyBytes(b []byte) (copiedBytes []byte) {
 
 	return
 }
+
 //
 //func MustParseBig256(s string) *big.Int {
 //	v, ok := ParseBig256(s)

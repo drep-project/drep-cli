@@ -15,17 +15,18 @@
 // along with go-ethereum. If not, see <http://www.gnu.org/licenses/>.
 
 // Package utils contains internal helper functions for go-ethereum commands.
-package flags
+package types
 
 import (
-	"os"
-	"runtime"
 	"fmt"
 	"io"
-	"strings"
+	"os"
 	"path/filepath"
-	"gopkg.in/urfave/cli.v1"
+	"runtime"
+	"strings"
+
 	"github.com/drep-project/drepcli/common"
+	"gopkg.in/urfave/cli.v1"
 )
 
 // NewApp creates an app with sane defaults.
@@ -51,14 +52,6 @@ func NewApp(gitCommit, usage string) *cli.App {
 // are the same for all commands.
 
 var (
-
-
-	//database
-	DataDirFlag = common.DirectoryFlag{
-		Name:  "datadir",
-		Usage: "Directory for the database dir (default = inside the homedir)",
-	}
-
 	//account
 	KeyStoreDirFlag = common.DirectoryFlag{
 		Name:  "keystore",
@@ -78,19 +71,6 @@ var (
 	PreloadJSFlag = cli.StringFlag{
 		Name:  "preload",
 		Usage: "Comma separated list of JavaScript files to preload into the console",
-	}
-
-	// Performance tuning settings
-	CacheFlag = cli.IntFlag{
-		Name:  "cache",
-		Usage: "Megabytes of memory allocated to internal caching",
-		Value: 1024,
-	}
-
-	//Consensus Mode
-	ConsensusModeFlag = cli.StringFlag{
-		Name:  "consensus",
-		Usage: "Consensus mode: solo, bft",
 	}
 )
 

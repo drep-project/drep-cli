@@ -1,15 +1,14 @@
 package log
 
 import (
-	"BlockChainTest/util"
 	"github.com/mattn/go-colorable"
 	"github.com/mattn/go-isatty"
+	"github.com/drep-project/drepcli/common"
 	"io"
 	"os"
 )
 
 var DEBUG = false
-
 
 var (
 	ostream Handler
@@ -28,9 +27,9 @@ func init() {
 
 func SetUp(cfg *LogConfig) error {
 	if cfg.DataDir != "" {
-		if !util.IsDirExists(cfg.DataDir) {
-			err :=os.MkdirAll(cfg.DataDir,0777)
-			if err!=nil{
+		if !common.IsDirExists(cfg.DataDir) {
+			err := os.MkdirAll(cfg.DataDir, 0777)
+			if err != nil {
 				return err
 			}
 		}

@@ -1,9 +1,9 @@
 package types
 
-
 import (
 	"encoding/hex"
 )
+
 const (
 	ChainIdSize = 64
 )
@@ -16,9 +16,9 @@ func (c ChainIdType) Hex() string {
 
 func (c *ChainIdType) SetBytes(b []byte) {
 	if len(b) > len(c) {
-		copy(c[:], b[len(b) - ChainIdSize:])
+		copy(c[:], b[len(b)-ChainIdSize:])
 	} else {
-		copy(c[ChainIdSize - len(b):], b)
+		copy(c[ChainIdSize-len(b):], b)
 	}
 }
 
@@ -48,7 +48,7 @@ func (c ChainIdType) MarshalText() ([]byte, error) {
 
 // UnmarshalJSON implements json.Unmarshaler.
 func (c *ChainIdType) UnmarshalJSON(input []byte) error {
-	return c.UnmarshalText(input[1:len(input)-1])
+	return c.UnmarshalText(input[1 : len(input)-1])
 }
 
 // UnmarshalText implements encoding.TextUnmarshaler

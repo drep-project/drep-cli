@@ -23,17 +23,18 @@ import (
 	"time"
 
 	"github.com/drep-project/drepcli/log"
+	"github.com/robertkrimen/otto"
+
 	rpcComponent "github.com/drep-project/drepcli/rpc/component"
 	rpcTypes "github.com/drep-project/drepcli/rpc/types"
-	"github.com/robertkrimen/otto"
 )
 
 // bridge is a collection of JavaScript utility methods to bride the .js runtime
 // environment and the Go RPC connection backing the remote method calls.
 type bridge struct {
-	client   *rpcComponent.Client  // RPC client to execute Ethereum requests through
-	prompter UserPrompter // Input prompter to allow interactive user feedback
-	printer  io.Writer    // Output writer to serialize any display strings to
+	client   *rpcComponent.Client // RPC client to execute Ethereum requests through
+	prompter UserPrompter         // Input prompter to allow interactive user feedback
+	printer  io.Writer            // Output writer to serialize any display strings to
 }
 
 // newBridge creates a new JavaScript wrapper around an RPC client.
@@ -83,8 +84,6 @@ func (b *bridge) NewAccount(call otto.FunctionCall) (response otto.Value) {
 	return ret
 }
 
-
-
 // Sleep will block the console for the specified number of seconds.
 func (b *bridge) Sleep(call otto.FunctionCall) (response otto.Value) {
 	if call.Argument(0).IsNumber() {
@@ -94,7 +93,6 @@ func (b *bridge) Sleep(call otto.FunctionCall) (response otto.Value) {
 	}
 	return throwJSException("usage: sleep(<number of seconds>)")
 }
-
 
 type jsonrpcCall struct {
 	ID     int64

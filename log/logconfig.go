@@ -1,10 +1,10 @@
-
 package log
 
 import (
 	"github.com/drep-project/drepcli/common"
 	"gopkg.in/urfave/cli.v1"
 )
+
 var (
 	//log
 	LogDirFlag = common.DirectoryFlag{
@@ -29,9 +29,8 @@ var (
 )
 
 type LogConfig struct {
-	DataDir string 		`json:"-"`
-	LogLevel int 		`json:"logLevel"`
-	Vmodule string		`json:"vmodule,omitempty"`
-	BacktraceAt string	`json:"backtraceAt,omitempty"`
+	DataDir     string `json:"-"`
+	LogLevel    int    `json:"logLevel"`
+	Vmodule     string `json:"vmodule,omitempty"`
+	BacktraceAt string `json:"backtraceAt,omitempty"`
 }
-

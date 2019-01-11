@@ -33,7 +33,7 @@ import (
 	"time"
 
 	"github.com/drep-project/drepcli/log"
-	rpcTypes 	"github.com/drep-project/drepcli/rpc/types"
+	rpcTypes "github.com/drep-project/drepcli/rpc/types"
 )
 
 var (
@@ -77,8 +77,6 @@ type BatchElem struct {
 	Error error
 }
 
-
-
 // Client represents a connection to an RPC server.
 type Client struct {
 	idCounter   uint32
@@ -92,22 +90,22 @@ type Client struct {
 
 	// for dispatch
 	close       chan struct{}
-	closing     chan struct{}                  // closed when client is quitting
-	didClose    chan struct{}                  // closed when client quits
-	reconnected chan net.Conn                  // where write/reconnect sends the new connection
-	readErr     chan error                     // errors from read
-	readResp    chan []*rpcTypes.JsonrpcMessage         // valid messages from read
-	requestOp   chan *requestOp                // for registering response IDs
-	sendDone    chan error                     // signals write completion, releases write lock
-	respWait    map[string]*requestOp          // active requests
-	subs        map[string]*ClientSubscription // active subscriptions
+	closing     chan struct{}                   // closed when client is quitting
+	didClose    chan struct{}                   // closed when client quits
+	reconnected chan net.Conn                   // where write/reconnect sends the new connection
+	readErr     chan error                      // errors from read
+	readResp    chan []*rpcTypes.JsonrpcMessage // valid messages from read
+	requestOp   chan *requestOp                 // for registering response IDs
+	sendDone    chan error                      // signals write completion, releases write lock
+	respWait    map[string]*requestOp           // active requests
+	subs        map[string]*ClientSubscription  // active subscriptions
 }
 
 type requestOp struct {
 	ids  []json.RawMessage
 	err  error
 	resp chan *rpcTypes.JsonrpcMessage // receives up to len(ids) responses
-	sub  *ClientSubscription  // only set for EthSubscribe requests
+	sub  *ClientSubscription           // only set for EthSubscribe requests
 }
 
 func (op *requestOp) wait(ctx context.Context) (*rpcTypes.JsonrpcMessage, error) {
@@ -769,7 +767,7 @@ func (sub *ClientSubscription) unmarshal(result json.RawMessage) (interface{}, e
 
 func (sub *ClientSubscription) requestUnsubscribe() error {
 	var result interface{}
-	return sub.client.Call(&result, sub.namespace + rpcTypes.UnsubscribeMethodSuffix, sub.subid)
+	return sub.client.Call(&result, sub.namespace+rpcTypes.UnsubscribeMethodSuffix, sub.subid)
 }
 
 //"{"jsonrpc":"2.0","id":1,"method":"eth_getBalance","params":["0xc6196f8d8165c7cbb5ffc3833d4caf0c92017c5d","latest"]}"

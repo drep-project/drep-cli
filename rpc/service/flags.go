@@ -1,10 +1,11 @@
 package service
 
 import (
-	rpcTypes "github.com/drep-project/drepcli/rpc/types"
-	"github.com/drep-project/drepcli/common"
 	"gopkg.in/urfave/cli.v1"
 	"strings"
+
+	"github.com/drep-project/drepcli/common"
+	rpcTypes "github.com/drep-project/drepcli/rpc/types"
 )
 
 var (

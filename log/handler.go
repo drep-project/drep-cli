@@ -131,7 +131,6 @@ func prepFile(path string) (*countingWriter, error) {
 	return &countingWriter{w: f, count: uint(ns)}, nil
 }
 
-
 // SyncRotatingFileHandler returns a handler which writes log records to file chunks
 // at the given path. When a file's size reaches the limit, the handler creates
 // a new file named after the timestamp of the first log record it will contain.

@@ -2,12 +2,14 @@ package app
 
 import (
 	"encoding/json"
-	"github.com/drep-project/drepcli/common"
+	"errors"
 	"io/ioutil"
 	"os"
-	"errors"
 	"path/filepath"
+
 	"gopkg.in/urfave/cli.v1"
+
+	"github.com/drep-project/drepcli/common"
 )
 
 var (
@@ -27,20 +29,20 @@ type DrepApp struct {
 	*cli.App
 }
 
-func NewApp () *DrepApp{
+func NewApp() *DrepApp {
 	return &DrepApp{
 		Context: &ExecuteContext{},
-		App:cli.NewApp(),
+		App:     cli.NewApp(),
 	}
 }
-func (mApp DrepApp) AddService(service Service)  {
+func (mApp DrepApp) AddService(service Service) {
 	mApp.Context.AddService(service)
 }
 
 func (mApp DrepApp) Run() error {
 	mApp.Before = mApp.before
-	mApp.Flags =append(mApp.Flags, ConfigFileFlag)
-	mApp.Flags =append(mApp.Flags, mApp.Context.GetFlags()...)
+	mApp.Flags = append(mApp.Flags, ConfigFileFlag)
+	mApp.Flags = append(mApp.Flags, mApp.Context.GetFlags()...)
 	mApp.Action = mApp.action
 	if err := mApp.App.Run(os.Args); err != nil {
 		return err
@@ -79,15 +81,15 @@ func (mApp DrepApp) before(ctx *cli.Context) error {
 	homeDir := ""
 	if ctx.GlobalIsSet(HomeDirFlag.Name) {
 		homeDir = ctx.GlobalString(HomeDirFlag.Name)
-	} else{
+	} else {
 		homeDir = common.AppDataDir(mApp.Name, false)
 	}
 	mApp.Context.ConfigPath = homeDir
 
 	mApp.Context.CommonConfig = &CommonConfig{
-		HomeDir:homeDir,
+		HomeDir: homeDir,
 	}
-	phaseConfig, err := loadConfigFile(ctx,homeDir)
+	phaseConfig, err := loadConfigFile(ctx, homeDir)
 
 	if err != nil {
 		return err

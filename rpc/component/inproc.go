@@ -20,7 +20,7 @@ import (
 	"context"
 	"net"
 
-	rpcTypes 	"github.com/drep-project/drepcli/rpc/types"
+	rpcTypes "github.com/drep-project/drepcli/rpc/types"
 )
 
 // DialInProc attaches an in-process connection to the given RPC server.

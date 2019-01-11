@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"gopkg.in/urfave/cli.v1"
 )
+
 var (
 	CommandHelpTemplate = `{{.cmd.Name}}{{if .cmd.Subcommands}} command{{end}}{{if .cmd.Flags}} [command options]{{end}} [arguments...]
 {{if .cmd.Description}}{{.cmd.Description}}
@@ -16,6 +17,7 @@ SUBCOMMANDS:
 {{end}}
 {{end}}{{end}}`
 )
+
 func init() {
 	cli.AppHelpTemplate = `{{.Name}} {{if .Flags}}[global options] {{end}}command{{if .Flags}} [command options]{{end}} [arguments...]
 
@@ -34,9 +36,8 @@ GLOBAL OPTIONS:
 }
 
 type CommonConfig struct {
-	HomeDir string  				`json:"homeDir,omitempty"`
+	HomeDir string `json:"homeDir,omitempty"`
 }
-
 
 // API describes the set of methods offered over the RPC interface
 type API struct {
@@ -57,22 +58,22 @@ type Service interface {
 }
 
 type ExecuteContext struct {
-	ConfigPath string
-	CommonConfig  *CommonConfig   //
-	PhaseConfig map[string]json.RawMessage
-	CliContext *cli.Context
+	ConfigPath   string
+	CommonConfig *CommonConfig //
+	PhaseConfig  map[string]json.RawMessage
+	CliContext   *cli.Context
 
 	Services []Service
 
 	GitCommit string
-	Usage string
+	Usage     string
 }
 
 func (econtext *ExecuteContext) AddService(service Service) {
 	econtext.Services = append(econtext.Services, service)
 }
 
-func (econtext *ExecuteContext) GetService(name string) Service{
+func (econtext *ExecuteContext) GetService(name string) Service {
 	for _, service := range econtext.Services {
 		if service.Name() == name {
 			return service
@@ -81,7 +82,7 @@ func (econtext *ExecuteContext) GetService(name string) Service{
 	return nil
 }
 
-func (econtext *ExecuteContext) GetConfig(phaseName string) json.RawMessage{
+func (econtext *ExecuteContext) GetConfig(phaseName string) json.RawMessage {
 	phaseConfig, ok := econtext.PhaseConfig[phaseName]
 	if ok {
 		return phaseConfig
@@ -90,7 +91,7 @@ func (econtext *ExecuteContext) GetConfig(phaseName string) json.RawMessage{
 	}
 }
 
-func (econtext *ExecuteContext) GetFlags() []cli.Flag{
+func (econtext *ExecuteContext) GetFlags() []cli.Flag {
 	flags := []cli.Flag{}
 	for _, service := range econtext.Services {
 		flags = append(flags, service.Flags()...)
@@ -98,7 +99,7 @@ func (econtext *ExecuteContext) GetFlags() []cli.Flag{
 	return flags
 }
 
-func (econtext *ExecuteContext) GetApis() []API{
+func (econtext *ExecuteContext) GetApis() []API {
 	apis := []API{}
 	for _, service := range econtext.Services {
 		apis = append(apis, service.Api()...)

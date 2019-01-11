@@ -11,13 +11,12 @@ import (
 
 const (
 	DefaultHTTPHost = "localhost" // Default host interface for the HTTP RPC server
-	DefaultHTTPPort = 15645        // Default TCP port for the HTTP RPC server
+	DefaultHTTPPort = 15645       // Default TCP port for the HTTP RPC server
 	DefaultWSHost   = "localhost" // Default host interface for the websocket RPC server
-	DefaultWSPort   = 15646        // Default TCP port for the websocket RPC server
-	DefaultRestHost = "localhost"  // Default host interface for the REST RPC server
+	DefaultWSPort   = 15646       // Default TCP port for the websocket RPC server
+	DefaultRestHost = "localhost" // Default host interface for the REST RPC server
 	DefaultRestPort = 55550       // Default TCP port for the REST RPC server
 )
-
 
 // HTTPTimeouts represents the configuration params for the HTTP RPC server.
 type HTTPTimeouts struct {
@@ -45,30 +44,30 @@ type HTTPTimeouts struct {
 
 type RpcConfig struct {
 
-	// IPCEnabled 
-	IPCEnabled bool   	`json:"IPCEnabled"`
+	// IPCEnabled
+	IPCEnabled bool `json:"IPCEnabled"`
 
 	// IPCPath is the requested location to place the IPC endpoint. If the path is
 	// a simple file name, it is placed inside the data directory (or on the root
 	// pipe path on Windows), whereas if it's a resolvable path name (absolute or
 	// relative), then that specific path is enforced. An empty path disables IPC.
-	IPCPath string 		`json:"IPCPath,omitempty"`
+	IPCPath string `json:"IPCPath,omitempty"`
 
-	// HTTPEnabled  
-	HTTPEnabled bool  	`json:"HTTPEnabled"`
+	// HTTPEnabled
+	HTTPEnabled bool `json:"HTTPEnabled"`
 	// HTTPHost is the host interface on which to start the HTTP RPC server. If this
 	// field is empty, no HTTP API endpoint will be started.
-	HTTPHost string		`json:"HTTPHost,omitempty"`
+	HTTPHost string `json:"HTTPHost,omitempty"`
 
 	// HTTPPort is the TCP port number on which to start the HTTP RPC server. The
 	// default zero value is/ valid and will pick a port number randomly (useful
 	// for ephemeral nodes).
-	HTTPPort int 		`json:"HTTPPort"`
+	HTTPPort int `json:"HTTPPort"`
 
 	// HTTPCors is the Cross-Origin Resource Sharing header to send to requesting
 	// clients. Please be aware that CORS is a browser enforced security, it's fully
 	// useless for custom HTTP clients.
-	HTTPCors []string 	`json:"HTTPCors,omitempty"`
+	HTTPCors []string `json:"HTTPCors,omitempty"`
 
 	// HTTPVirtualHosts is the list of virtual hostnames which are allowed on incoming requests.
 	// This is by default {'localhost'}. Using this prevents attacks like
@@ -88,7 +87,7 @@ type RpcConfig struct {
 	// interface.
 	HTTPTimeouts HTTPTimeouts `json:"HTTPTimeouts"`
 
-	// WSEnabled  
+	// WSEnabled
 	WSEnabled bool `json:"WSEnabled"`
 	// WSHost is the host interface on which to start the websocket RPC server. If
 	// this field is empty, no websocket API endpoint will be started.
@@ -116,7 +115,7 @@ type RpcConfig struct {
 	// private APIs to untrusted users is a major security risk.
 	WSExposeAll bool `json:"WSExposeAll"`
 
-	// RESTEnabled  
+	// RESTEnabled
 	RESTEnabled bool `json:"RESTEnabled"`
 	// HTTPHost is the host interface on which to start the HTTP RPC server. If this
 	// field is empty, no HTTP API endpoint will be started.
@@ -151,7 +150,7 @@ func (c *RpcConfig) IPCEndpoint() string {
 	// Resolve names into the data directory full paths otherwise
 	if filepath.Base(c.IPCPath) == c.IPCPath {
 		//if c.DataDir == "" {
-			return filepath.Join(os.TempDir(), c.IPCPath)
+		return filepath.Join(os.TempDir(), c.IPCPath)
 		//}
 		//return filepath.Join(c.DataDir, c.IPCPath)
 	}
@@ -187,7 +186,6 @@ func DefaultRestEndpoint() string {
 	config := &RpcConfig{HTTPHost: DefaultRestHost, HTTPPort: DefaultRestPort}
 	return config.RestEndpoint()
 }
-
 
 // WSEndpoint resolves a websocket endpoint based on the configured host interface
 // and port parameters.

@@ -3,17 +3,19 @@ package service
 import (
 	"encoding/json"
 	"fmt"
-	rpcTypes "github.com/drep-project/drepcli/rpc/types"
-	"gopkg.in/urfave/cli.v1"
-	dapp "github.com/drep-project/drepcli/app"
-	 "github.com/drep-project/drepcli/log"
 	"net"
 	"os"
 	"path"
 	"path/filepath"
 	"strings"
 	"sync"
-	rpcComponent 	"github.com/drep-project/drepcli/rpc/component"
+
+	"gopkg.in/urfave/cli.v1"
+
+	"github.com/drep-project/drepcli/app"
+	"github.com/drep-project/drepcli/log"
+	rpcComponent "github.com/drep-project/drepcli/rpc/component"
+	rpcTypes "github.com/drep-project/drepcli/rpc/types"
 )
 
 const (
@@ -21,53 +23,53 @@ const (
 )
 
 type RpcService struct {
-	RpcAPIs       []dapp.API   // List of APIs currently provided by the node
-	RestApi rpcTypes.RestDescription
+	RpcAPIs       []app.API // List of APIs currently provided by the node
+	RestApi       rpcTypes.RestDescription
 	inprocHandler *rpcTypes.Server // In-process RPC request handler to process the API requests
 
-	IpcEndpoint string       // IPC endpoint to listen at (empty = IPC disabled)
-	IpcListener net.Listener // IPC RPC listener socket to serve API requests
-	IpcHandler  *rpcTypes.Server  // IPC RPC request handler to process the API requests
+	IpcEndpoint string           // IPC endpoint to listen at (empty = IPC disabled)
+	IpcListener net.Listener     // IPC RPC listener socket to serve API requests
+	IpcHandler  *rpcTypes.Server // IPC RPC request handler to process the API requests
 
-	HttpEndpoint  string       // HTTP endpoint (interface + port) to listen at (empty = HTTP disabled)
-	HttpWhitelist []string     // HTTP RPC modules to allow through this endpoint
-	HttpListener  net.Listener // HTTP RPC listener socket to server API requests
-	HttpHandler   *rpcTypes.Server  // HTTP RPC request handler to process the API requests
+	HttpEndpoint  string           // HTTP endpoint (interface + port) to listen at (empty = HTTP disabled)
+	HttpWhitelist []string         // HTTP RPC modules to allow through this endpoint
+	HttpListener  net.Listener     // HTTP RPC listener socket to server API requests
+	HttpHandler   *rpcTypes.Server // HTTP RPC request handler to process the API requests
 
-	WsEndpoint string       // Websocket endpoint (interface + port) to listen at (empty = websocket disabled)
-	WsListener net.Listener // Websocket RPC listener socket to server API requests
-	WsHandler  *rpcTypes.Server  // Websocket RPC request handler to process the API requests
+	WsEndpoint string           // Websocket endpoint (interface + port) to listen at (empty = websocket disabled)
+	WsListener net.Listener     // Websocket RPC listener socket to server API requests
+	WsHandler  *rpcTypes.Server // Websocket RPC request handler to process the API requests
 
-	RestEndpoint string       // Websocket endpoint (interface + port) to listen at (empty = websocket disabled)
+	RestEndpoint   string                       // Websocket endpoint (interface + port) to listen at (empty = websocket disabled)
 	RestController *rpcComponent.RestController // Websocket RPC listener socket to server API requests
 
-	lock sync.RWMutex
+	lock      sync.RWMutex
 	RpcConfig *rpcTypes.RpcConfig
 }
 
-func (rpcService *RpcService)Name() string{
+func (rpcService *RpcService) Name() string {
 	return "rpc"
 }
-func (rpcService *RpcService)Api() []dapp.API{
+func (rpcService *RpcService) Api() []app.API {
 	return nil
 }
-func (rpcService *RpcService)Flags() []cli.Flag {
+func (rpcService *RpcService) Flags() []cli.Flag {
 	return []cli.Flag{
-		HTTPEnabledFlag,HTTPListenAddrFlag,HTTPPortFlag,HTTPCORSDomainFlag,
-		HTTPVirtualHostsFlag,HTTPApiFlag,IPCDisabledFlag,IPCPathFlag,WSEnabledFlag,
-		WSListenAddrFlag,WSPortFlag,WSApiFlag,WSAllowedOriginsFlag,RESTEnabledFlag,
-		RESTListenAddrFlag,RESTPortFlag,
+		HTTPEnabledFlag, HTTPListenAddrFlag, HTTPPortFlag, HTTPCORSDomainFlag,
+		HTTPVirtualHostsFlag, HTTPApiFlag, IPCDisabledFlag, IPCPathFlag, WSEnabledFlag,
+		WSListenAddrFlag, WSPortFlag, WSApiFlag, WSAllowedOriginsFlag, RESTEnabledFlag,
+		RESTListenAddrFlag, RESTPortFlag,
 	}
 }
 
-func (rpcService *RpcService)Init(executeContext *dapp.ExecuteContext) error {
+func (rpcService *RpcService) Init(executeContext *app.ExecuteContext) error {
 	phase := executeContext.GetConfig(rpcService.Name())
 	rpcService.RpcConfig = &rpcTypes.RpcConfig{}
 	err := json.Unmarshal(phase, rpcService.RpcConfig)
 	if err != nil {
-		return  err
+		return err
 	}
-	rpcService.setRpcLog(executeContext.CliContext,executeContext.CommonConfig.HomeDir)
+	rpcService.setRpcLog(executeContext.CliContext, executeContext.CommonConfig.HomeDir)
 	rpcService.IpcEndpoint = rpcService.RpcConfig.IPCEndpoint()
 	rpcService.HttpEndpoint = rpcService.RpcConfig.HTTPEndpoint()
 	rpcService.WsEndpoint = rpcService.RpcConfig.WSEndpoint()
@@ -76,7 +78,7 @@ func (rpcService *RpcService)Init(executeContext *dapp.ExecuteContext) error {
 	return nil
 }
 
-func (rpcService *RpcService)Start(executeContext *dapp.ExecuteContext) error{
+func (rpcService *RpcService) Start(executeContext *app.ExecuteContext) error {
 	// All API endpoints started successfully
 	//rpcserver.RpcAPIs = apis
 	// Start the various API endpoints, terminating all in case of errors
@@ -100,15 +102,15 @@ func (rpcService *RpcService)Start(executeContext *dapp.ExecuteContext) error{
 	}
 
 	/*
-	if err := rpcService.StartRest(rpcService.RestEndpoint,rpcService.RestApi); err != nil {
-		rpcService.StopREST()
-		return err
-	}
+		if err := rpcService.StartRest(rpcService.RestEndpoint,rpcService.RestApi); err != nil {
+			rpcService.StopREST()
+			return err
+		}
 	*/
 	return nil
 }
 
-func (rpcService *RpcService) Stop(executeContext *dapp.ExecuteContext) error{
+func (rpcService *RpcService) Stop(executeContext *app.ExecuteContext) error {
 	rpcService.lock.Lock()
 	defer rpcService.lock.Unlock()
 	// Terminate the API, services and the p2p server.
@@ -120,7 +122,7 @@ func (rpcService *RpcService) Stop(executeContext *dapp.ExecuteContext) error{
 }
 
 // StartHTTP initializes and starts the HTTP RPC endpoint.
-func  (rpcService *RpcService)StartRest(endpoint string,restApi rpcTypes.RestDescription) error {
+func (rpcService *RpcService) StartRest(endpoint string, restApi rpcTypes.RestDescription) error {
 	if !rpcService.RpcConfig.RESTEnabled {
 		return nil
 	}
@@ -133,7 +135,7 @@ func  (rpcService *RpcService)StartRest(endpoint string,restApi rpcTypes.RestDes
 }
 
 // StopHTTP terminates the HTTP RPC endpoint.
-func  (rpcService *RpcService)StopREST()  {
+func (rpcService *RpcService) StopREST() {
 	if rpcService.RestController != nil {
 		rpcService.RestController.Stop()
 		rpcService.RestController = nil
@@ -142,7 +144,7 @@ func  (rpcService *RpcService)StopREST()  {
 }
 
 // StartInProc initializes an in-process RPC endpoint.
-func (rpcService *RpcService) StartInProc(apis []dapp.API) error {
+func (rpcService *RpcService) StartInProc(apis []app.API) error {
 	// Register all the APIs exposed by the services
 	handler := rpcTypes.NewServer()
 	for _, api := range apis {
@@ -164,7 +166,7 @@ func (rpcService *RpcService) StopInProc() {
 }
 
 // StartIPC initializes and starts the IPC RPC endpoint.
-func (rpcService *RpcService) StartIPC(apis []dapp.API) error {
+func (rpcService *RpcService) StartIPC(apis []app.API) error {
 	if !rpcService.RpcConfig.IPCEnabled {
 		return nil
 	}
@@ -196,7 +198,7 @@ func (rpcService *RpcService) StopIPC() {
 }
 
 // StartHTTP initializes and starts the HTTP RPC endpoint.
-func (rpcService *RpcService) StartHTTP(endpoint string, apis []dapp.API, modules []string, cors []string, vhosts []string, timeouts rpcTypes.HTTPTimeouts) error {
+func (rpcService *RpcService) StartHTTP(endpoint string, apis []app.API, modules []string, cors []string, vhosts []string, timeouts rpcTypes.HTTPTimeouts) error {
 	if !rpcService.RpcConfig.HTTPEnabled {
 		return nil
 	}
@@ -231,7 +233,7 @@ func (rpcService *RpcService) StopHTTP() {
 }
 
 // StartWS initializes and starts the websocket RPC endpoint.
-func (rpcService *RpcService) StartWS(endpoint string, apis []dapp.API, modules []string, wsOrigins []string, exposeAll bool) error {
+func (rpcService *RpcService) StartWS(endpoint string, apis []app.API, modules []string, wsOrigins []string, exposeAll bool) error {
 	if !rpcService.RpcConfig.WSEnabled {
 		return nil
 	}
@@ -266,7 +268,6 @@ func (rpcService *RpcService) StopWS() {
 	}
 }
 
-
 // setRpc creates an rpc configuration from the set command line flags,
 func (rpcService *RpcService) setRpcLog(ctx *cli.Context, homeDir string) {
 	rpcService.setIPC(ctx, homeDir)
@@ -277,7 +278,7 @@ func (rpcService *RpcService) setRpcLog(ctx *cli.Context, homeDir string) {
 
 // setIPC creates an IPC path configuration from the set command line flags,
 // returning an empty string if IPC was explicitly disabled, or the set path.
-func (rpcService *RpcService)setIPC(ctx *cli.Context, homeDir string) {
+func (rpcService *RpcService) setIPC(ctx *cli.Context, homeDir string) {
 	rpcService.RpcConfig = &rpcTypes.RpcConfig{}
 	rpcService.RpcConfig.IPCEnabled = true
 	if ctx.GlobalBool(IPCDisabledFlag.Name) {
@@ -288,14 +289,14 @@ func (rpcService *RpcService)setIPC(ctx *cli.Context, homeDir string) {
 	checkExclusive(ctx, IPCDisabledFlag, IPCPathFlag)
 	if ctx.GlobalIsSet(IPCPathFlag.Name) {
 		rpcService.RpcConfig.IPCPath = ctx.GlobalString(IPCPathFlag.Name)
-	}else{
+	} else {
 		rpcService.RpcConfig.IPCPath = path.Join(homeDir, DefaultIPCEndpoint(ClientIdentifier))
 	}
 }
 
 // setHTTP creates the HTTP RPC listener interface string from the set
 // command line flags, returning empty if the HTTP endpoint is disabled.
-func (rpcService *RpcService)setHTTP(ctx *cli.Context, homeDir string) {
+func (rpcService *RpcService) setHTTP(ctx *cli.Context, homeDir string) {
 	rpcService.RpcConfig.HTTPEnabled = true
 	if !ctx.GlobalBool(HTTPEnabledFlag.Name) {
 		rpcService.RpcConfig.HTTPEnabled = false
@@ -310,7 +311,7 @@ func (rpcService *RpcService)setHTTP(ctx *cli.Context, homeDir string) {
 
 	if ctx.GlobalIsSet(HTTPPortFlag.Name) {
 		rpcService.RpcConfig.HTTPPort = ctx.GlobalInt(HTTPPortFlag.Name)
-	}else{
+	} else {
 		rpcService.RpcConfig.HTTPPort = rpcTypes.DefaultHTTPPort
 	}
 
@@ -331,7 +332,7 @@ func (rpcService *RpcService)setHTTP(ctx *cli.Context, homeDir string) {
 
 // setHTTP creates the HTTP RPC listener interface string from the set
 // command line flags, returning empty if the HTTP endpoint is disabled.
-func (rpcService *RpcService)setRest(ctx *cli.Context, homeDir string) {
+func (rpcService *RpcService) setRest(ctx *cli.Context, homeDir string) {
 	rpcService.RpcConfig.RESTEnabled = true
 	if !ctx.GlobalBool(RESTEnabledFlag.Name) {
 		rpcService.RpcConfig.RESTEnabled = false
@@ -346,14 +347,14 @@ func (rpcService *RpcService)setRest(ctx *cli.Context, homeDir string) {
 
 	if ctx.GlobalIsSet(RESTPortFlag.Name) {
 		rpcService.RpcConfig.RESTPort = ctx.GlobalInt(RESTPortFlag.Name)
-	}else{
+	} else {
 		rpcService.RpcConfig.RESTPort = rpcTypes.DefaultRestPort
 	}
 }
 
 // setWS creates the WebSocket RPC listener interface string from the set
 // command line flags, returning empty if the HTTP endpoint is disabled.
-func (rpcService *RpcService)setWS(ctx *cli.Context, homeDir string) {
+func (rpcService *RpcService) setWS(ctx *cli.Context, homeDir string) {
 
 	rpcService.RpcConfig.WSEnabled = true
 	if !ctx.GlobalBool(WSEnabledFlag.Name) {
@@ -363,13 +364,13 @@ func (rpcService *RpcService)setWS(ctx *cli.Context, homeDir string) {
 
 	if ctx.GlobalIsSet(WSListenAddrFlag.Name) {
 		rpcService.RpcConfig.WSHost = ctx.GlobalString(WSListenAddrFlag.Name)
-	} else{
-		rpcService.RpcConfig.WSHost =  rpcTypes.DefaultWSHost
+	} else {
+		rpcService.RpcConfig.WSHost = rpcTypes.DefaultWSHost
 	}
 
 	if ctx.GlobalIsSet(WSPortFlag.Name) {
 		rpcService.RpcConfig.WSPort = ctx.GlobalInt(WSPortFlag.Name)
-	}else{
+	} else {
 		rpcService.RpcConfig.WSPort = rpcTypes.DefaultWSPort
 	}
 

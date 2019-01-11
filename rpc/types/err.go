@@ -8,7 +8,6 @@ type Error interface {
 	ErrorCode() int // returns the code
 }
 
-
 // request is for an unknown service
 type MethodNotFoundError struct {
 	service string
@@ -18,7 +17,7 @@ type MethodNotFoundError struct {
 func (e *MethodNotFoundError) ErrorCode() int { return -32601 }
 
 func (e *MethodNotFoundError) Error() string {
-	return fmt.Sprintf("The method %s%s%s does not exist/is not available", e.service , e.method)
+	return fmt.Sprintf("The method %s%s%s does not exist/is not available", e.service, e.method)
 }
 
 // received message isn't a valid request
