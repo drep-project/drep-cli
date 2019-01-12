@@ -35,6 +35,7 @@ GLOBAL OPTIONS:
 	cli.CommandHelpTemplate = CommandHelpTemplate
 }
 
+// CommonConfig read before app run,this fuction shared by other moudles
 type CommonConfig struct {
 	HomeDir string `json:"homeDir,omitempty"`
 }
@@ -47,16 +48,19 @@ type API struct {
 	Public    bool        // indication if the methods must be considered safe for public use
 }
 
+// Services can customize their own configuration, command parameters, interfaces, services
 type Service interface {
-	Name() string
-	Api() []API
-	Flags() []cli.Flag
+	Name() string			// service  name must be unique
+	Api() []API				// Interfaces required for services
+	Flags() []cli.Flag		// flags required for services
 
 	Init(executeContext *ExecuteContext) error
 	Start(executeContext *ExecuteContext) error
 	Stop(executeContext *ExecuteContext) error
 }
 
+// ExecuteContext centralizes all the data and global parameters of application execution,
+// and each service can read the part it needs.
 type ExecuteContext struct {
 	ConfigPath   string
 	CommonConfig *CommonConfig //
@@ -69,10 +73,13 @@ type ExecuteContext struct {
 	Usage     string
 }
 
+// AddService add a service to context, The application then initializes and starts the service.
 func (econtext *ExecuteContext) AddService(service Service) {
 	econtext.Services = append(econtext.Services, service)
 }
 
+// GetService In addition, there is a dependency relationship between services.
+// This method is used to find the dependency services you need in the context.
 func (econtext *ExecuteContext) GetService(name string) Service {
 	for _, service := range econtext.Services {
 		if service.Name() == name {
@@ -82,6 +89,9 @@ func (econtext *ExecuteContext) GetService(name string) Service {
 	return nil
 }
 
+//	GetConfig Configuration is divided into several segments,
+//	each service only needs to obtain its own configuration data,
+//	and the parsing process is also controlled by each service itself.
 func (econtext *ExecuteContext) GetConfig(phaseName string) json.RawMessage {
 	phaseConfig, ok := econtext.PhaseConfig[phaseName]
 	if ok {
@@ -91,6 +101,7 @@ func (econtext *ExecuteContext) GetConfig(phaseName string) json.RawMessage {
 	}
 }
 
+// GetFlags aggregate command configuration items required for each service
 func (econtext *ExecuteContext) GetFlags() []cli.Flag {
 	flags := []cli.Flag{}
 	for _, service := range econtext.Services {
@@ -99,6 +110,7 @@ func (econtext *ExecuteContext) GetFlags() []cli.Flag {
 	return flags
 }
 
+//	GetApis aggregate interface functions for each service to provide for use by RPC services
 func (econtext *ExecuteContext) GetApis() []API {
 	apis := []API{}
 	for _, service := range econtext.Services {

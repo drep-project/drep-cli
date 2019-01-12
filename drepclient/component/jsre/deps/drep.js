@@ -91,12 +91,12 @@ require=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=
         Drep.prototype.toDecimal = utils.toDecimal;
         Drep.prototype.fromDecimal = utils.fromDecimal;
         Drep.prototype.toBigNumber = utils.toBigNumber;
-        Drep.prototype.toWei = utils.toWei;
+//Drep.prototype.toWei = utils.toWei;
         Drep.prototype.fromWei = utils.fromWei;
         Drep.prototype.isAddress = utils.isAddress;
         Drep.prototype.isChecksumAddress = utils.isChecksumAddress;
         Drep.prototype.toChecksumAddress = utils.toChecksumAddress;
-        Drep.prototype.isIBAN = utils.isIBAN;
+//Drep.prototype.isIBAN = utils.isIBAN;
         Drep.prototype.padLeft = utils.padLeft;
         Drep.prototype.padRight = utils.padRight;
 
@@ -593,7 +593,7 @@ require=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=
         /**
          * Formats the output of a block to its proper values
          *
-         * @method outputBlockFormatter
+         * @method meInfoFormatter
          * @param {Object} block
          * @returns {Object}
          */
@@ -603,6 +603,25 @@ require=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=
             meInfo.nonce = utils.toDecimal(meInfo.nonce);
             meInfo.balance = outputBigNumberFormatter(meInfo.balance);
             return meInfo;
+        };
+
+
+
+
+        /**
+         * Formats the output of a block to its proper values
+         *
+         * @method meInfoFormatter
+         * @param {Object} block
+         * @returns {Object}
+         */
+        var storageFormatter = function(storage) {
+            // 	ByteCode   crypto.ByteCode
+            //  CodeHash   crypto.Hash
+            storage.Nonce = utils.toDecimal(storage.Nonce);
+            storage.Balance = outputBigNumberFormatter(storage.Balance);
+            storage.Reputation = outputBigNumberFormatter(storage.Reputation);
+            return storage;
         };
 
         module.exports = {
@@ -619,7 +638,8 @@ require=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=
             outputLogFormatter: outputLogFormatter,
             outputPostFormatter: outputPostFormatter,
             outputSyncingFormatter: outputSyncingFormatter,
-            meInfoFormatter: meInfoFormatter
+            meInfoFormatter: meInfoFormatter,
+            storageFormatter: storageFormatter
         };
 
 
@@ -1480,7 +1500,10 @@ require=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=
         module.exports = Method;
 
     },{"../utils/utils":20,"./errors":3}],11:[function(require,module,exports){
+
         var Method = require('../method');
+        var formatters = require('../formatters');
+        var utils = require('../../utils/utils');
 
         var ACCOUNT = function (drep) {
             this._requestManager = drep._requestManager;
@@ -1494,24 +1517,29 @@ require=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=
         };
 
         var methods = function () {
+
             var accountList = new Method({
                 name: 'accountList',
                 call: 'account_accountList',
-                params: 0
+                params: 0,
             });
 
             var createAccount = new Method({
                 name: 'createAccount',
                 call: 'account_createAccount',
-                params: 0
+                params: 0,
             });
+
             return [accountList,createAccount]
         }
 
         module.exports = ACCOUNT;
-    },{"../method":10}],12:[function(require,module,exports){
+
+    },{"../../utils/utils":20,"../formatters":5,"../method":10}],12:[function(require,module,exports){
+
         var Method = require('../method');
         var formatters = require('../formatters');
+        var utils = require('../../utils/utils');
 
         var CHAIN = function (drep) {
             this._requestManager = drep._requestManager;
@@ -1529,81 +1557,82 @@ require=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=
             var call = new Method({
                 name: 'call',
                 call: 'chain_call',
-                params: 5
+                params: 5,
             });
 
             var check = new Method({
                 name: 'check',
                 call: 'chain_check',
-                params: 2
+                params: 2,
+                outputFormatter : formatters.storageFormatter
             });
 
             var checkBalance = new Method({
                 name: 'checkBalance',
                 call: 'chain_checkBalance',
                 params: 1,
-                outputFormatter: formatters.outputBigNumberFormatter
             });
 
             var checkNonce = new Method({
                 name: 'checkNonce',
                 call: 'chain_checkNonce',
-                params: 1
+                params: 1,
+                outputFormatter : utils.toDecimal
             });
 
             var create = new Method({
                 name: 'create',
                 call: 'chain_create',
-                params: 1
+                params: 1,
+            });
+
+            var h = new Method({
+                name: 'h',
+                call: 'chain_h',
+                params: 0,
             });
 
             var me = new Method({
                 name: 'me',
                 call: 'chain_me',
                 params: 0,
-                outputFormatter: formatters.meInfoFormatter
+                outputFormatter : formatters.meInfoFormatter
             });
 
             var miner = new Method({
                 name: 'miner',
                 call: 'chain_miner',
-                params: 2
+                params: 2,
+            });
+
+            var n = new Method({
+                name: 'n',
+                call: 'chain_n',
+                params: 0,
             });
 
             var send = new Method({
                 name: 'send',
                 call: 'chain_send',
-                params: 3
+                params: 3,
             });
 
-            return [call,check,checkBalance,checkNonce,create,me,miner,send]
+            var travel = new Method({
+                name: 'travel',
+                call: 'chain_travel',
+                params: 0,
+            });
+
+            return [call,check,checkBalance,checkNonce,create,h,me,miner,n,send,travel]
         }
 
         module.exports = CHAIN;
-    },{"../formatters":5,"../method":10}],13:[function(require,module,exports){
-        /*
-    This file is part of drep.js.
 
-    drep.js is free software: you can redistribute it and/or modify
-    it under the terms of the GNU Lesser General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    drep.js is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Lesser General Public License for more details.
-
-    You should have received a copy of the GNU Lesser General Public License
-    along with drep.js.  If not, see <http://www.gnu.org/licenses/>.
-*/
-        /** @file db.js
-         * @authors:
-         *   Marek Kotewicz <marek@ethdev.com>
-         * @date 2015
-         */
+    },{"../../utils/utils":20,"../formatters":5,"../method":10}],13:[function(require,module,exports){
 
         var Method = require('../method');
+        var formatters = require('../formatters');
+        var utils = require('../../utils/utils');
 
         var DB = function (drep) {
             this._requestManager = drep._requestManager;
@@ -1617,87 +1646,81 @@ require=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=
         };
 
         var methods = function () {
+
             var getAllBlocks = new Method({
                 name: 'getAllBlocks',
                 call: 'db_getAllBlocks',
-                params: 0
+                params: 0,
             });
 
-            var getBalanceOutsideTransaction = new Method({
-                name: 'getBalanceOutsideTransaction',
-                call: 'db_getBalanceOutsideTransaction',
-                params: 2
+            var getBalance = new Method({
+                name: 'getBalance',
+                call: 'db_getBalance',
+                params: 2,
             });
 
             var getBlock = new Method({
                 name: 'getBlock',
                 call: 'db_getBlock',
-                params: 1
+                params: 1,
             });
 
             var getBlocksFrom = new Method({
                 name: 'getBlocksFrom',
                 call: 'db_getBlocksFrom',
-                params: 2
+                params: 2,
             });
 
-            var getByteCodeInsideTransaction = new Method({
-                name: 'getByteCodeInsideTransaction',
-                call: 'db_getByteCodeInsideTransaction',
-                params: 3
+            var getByteCode = new Method({
+                name: 'getByteCode',
+                call: 'db_getByteCode',
+                params: 2,
             });
 
-            var getByteCodeOutsideTransaction = new Method({
-                name: 'getByteCodeOutsideTransaction',
-                call: 'db_getByteCodeOutsideTransaction',
-                params: 2
-            });
-
-            var getCodeHashOutsideTransaction = new Method({
-                name: 'getCodeHashOutsideTransaction',
-                call: 'db_getCodeHashOutsideTransaction',
-                params: 2
+            var getCodeHash = new Method({
+                name: 'getCodeHash',
+                call: 'db_getCodeHash',
+                params: 2,
             });
 
             var getHighestBlock = new Method({
                 name: 'getHighestBlock',
                 call: 'db_getHighestBlock',
-                params: 0
+                params: 0,
             });
 
-            var getLogsOutsideTransaction = new Method({
-                name: 'getLogsOutsideTransaction',
-                call: 'db_getLogsOutsideTransaction',
-                params: 2
+            var getLogs = new Method({
+                name: 'getLogs',
+                call: 'db_getLogs',
+                params: 2,
             });
 
             var getMaxHeight = new Method({
                 name: 'getMaxHeight',
                 call: 'db_getMaxHeight',
-                params: 0
+                params: 0,
+                outputFormatter : utils.toDecimal
             });
 
             var getMostRecentBlocks = new Method({
                 name: 'getMostRecentBlocks',
                 call: 'db_getMostRecentBlocks',
-                params: 1
+                params: 1,
             });
 
-            var getNonceOutsideTransaction = new Method({
-                name: 'getNonceOutsideTransaction',
-                call: 'db_getNonceOutsideTransaction',
-                params: 2
+            var getNonce = new Method({
+                name: 'getNonce',
+                call: 'db_getNonce',
+                params: 2,
+                outputFormatter : utils.toDecimal
             });
-            return [
-                getAllBlocks,getBalanceOutsideTransaction,getBlock,getBlocksFrom,getByteCodeInsideTransaction,
-                getByteCodeOutsideTransaction,getCodeHashOutsideTransaction,getHighestBlock,getLogsOutsideTransaction,
-                getMaxHeight,getMostRecentBlocks,getNonceOutsideTransaction
-            ];
-        };
+
+            return [getAllBlocks,getBalance,getBlock,getBlocksFrom,getByteCode,getCodeHash,getHighestBlock,getLogs,getMaxHeight,getMostRecentBlocks,getNonce]
+        }
 
         module.exports = DB;
 
-    },{"../method":10}],14:[function(require,module,exports){
+    },{"../../utils/utils":20,"../formatters":5,"../method":10}],14:[function(require,module,exports){
         /*
     This file is part of drep.js.
 

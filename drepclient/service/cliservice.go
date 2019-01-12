@@ -17,22 +17,27 @@ var (
 	}
 )
 
+// CliService provides an interactive command line window
 type CliService struct {
 	config *cliTypes.Config
 }
 
+// Name name
 func (cliService *CliService) Name() string {
 	return "cli"
 }
 
+// Api api none
 func (cliService *CliService) Api() []app.API {
 	return []app.API{}
 }
 
+// Flags flags  enable load js and execute before run
 func (cliService *CliService) Flags() []cli.Flag {
 	return []cli.Flag{cliTypes.JSpathFlag, cliTypes.ExecFlag, cliTypes.PreloadJSFlag}
 }
 
+// Init  set console config
 func (cliService *CliService) Init(executeContext *app.ExecuteContext) error {
 	endpoint := executeContext.CliContext.Args().First()
 	if len(endpoint) == 0 {

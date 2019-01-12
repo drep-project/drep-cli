@@ -24,21 +24,27 @@ var (
 	}
 )
 
+// DrepApp based on the cli.App, the module service operation is encapsulated.
+// The purpose is to achieve the independence of each module and reduce dependencies as far as possible.
 type DrepApp struct {
 	Context *ExecuteContext
 	*cli.App
 }
 
+// NewApp create a new app
 func NewApp() *DrepApp {
 	return &DrepApp{
 		Context: &ExecuteContext{},
 		App:     cli.NewApp(),
 	}
 }
+// AddService add a server into context
 func (mApp DrepApp) AddService(service Service) {
 	mApp.Context.AddService(service)
 }
 
+//Run read the global configuration, parse the global command parameters,
+// initialize the main process one by one, and execute the service before the main process starts.
 func (mApp DrepApp) Run() error {
 	mApp.Before = mApp.before
 	mApp.Flags = append(mApp.Flags, ConfigFileFlag)
@@ -49,6 +55,8 @@ func (mApp DrepApp) Run() error {
 	}
 	return nil
 }
+
+// action used to init and run each services
 func (mApp DrepApp) action(ctx *cli.Context) error {
 	defer func() {
 		for _, service := range mApp.Context.Services {
@@ -75,6 +83,7 @@ func (mApp DrepApp) action(ctx *cli.Context) error {
 	return nil
 }
 
+//  read global config before main process
 func (mApp DrepApp) before(ctx *cli.Context) error {
 	mApp.Context.CliContext = ctx
 
@@ -99,6 +108,7 @@ func (mApp DrepApp) before(ctx *cli.Context) error {
 	return nil
 }
 
+//	loadConfigFile sed to read configuration files
 func loadConfigFile(ctx *cli.Context, configPath string) (map[string]json.RawMessage, error) {
 	configFile := filepath.Join(configPath, "config.json")
 
