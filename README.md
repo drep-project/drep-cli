@@ -51,8 +51,8 @@ Meanwhile, you can input commands into the interface and perform operations to t
 |   |   |
 |---|---|
 |Method|getBalance|
-|Parameters| 1: 地址<br>2: 链id|
-|Description|获取地址在链上的token|
+|Parameters| 1: Address<br>2: Chain id|
+|Description|Get the account's balance with respect to the address|
 |Returns|Number|
 |Example|db.getBalance("0x772dec19e0b0b2d63a57a3a7fb03fc066d915e6b",0)|
 |Example Return| 0|
@@ -62,8 +62,8 @@ Meanwhile, you can input commands into the interface and perform operations to t
 |   |   |
 |---|---|
 |Method|getBlock|
-|Parameters|区块号|
-|Description|获取区块数据|
+|Parameters|Block height|
+|Description|Get the corresponding block|
 |Returns|Object|
 |Example|db.getBlock(10)|
 
@@ -104,8 +104,8 @@ Meanwhile, you can input commands into the interface and perform operations to t
 
 |---|---|
 |Method|getBlocksFrom|
-|Parameters|1:the height of the first block to get<br>2:the number of the blocks to get|
-|Description|get the blocks between two heights|
+|Parameters|1:The height of the first block to get<br>2:The number of the blocks to get|
+|Description|Get the blocks between two heights|
 |Returns|Array|
 |Example| db.getBlocksFrom(10,2)|
 
