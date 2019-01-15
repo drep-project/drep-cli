@@ -1,12 +1,22 @@
-# Drep Client
-基于JSON-RPC协议实现的客户端，用于连接到Drep公链。可用于查询链上信息，发起交易等操作
+# DREP Cli
+
+DREP Command Line Interface, a JSON-RPC based client for connecting to the DREP chain to query information on the chain
+and send transactions.
+
+# Features
+
+// TODO:
+
 # Installation
+
 ## Binaries (Windows/Linux/macOS)
-发布页提供了不同平台的可执行文件[github.com/drep-project/drepcli/releases](github.com/drep-project/drepcli/releases)
 
-### Build from source (all platforms)
+Executable binaries can be downloaded from [our GitHub page](https://github.com/drep-project/drepcli/releases)
 
-本项目使用Modules管理依赖，如何启用Modules功能请参考[https://blog.golang.org/modules2019](https://blog.golang.org/modules2019)
+## Build from source code (all platforms)
+
+Clone the repository into the appropriate $GOPATH/src/github.com/drep-project directory.
+
 
 **NOTE:**  requires `Go >= 1.1.11`.
 
@@ -16,64 +26,33 @@
   go install
 ```
 
+After building the source code sucessfully, you should see :
+
+// TODO
+
+
 # Usage
+
+To start the DREP Cli
 
 ```
  drepcli http://127.0.0.1:15645
 ```
 
-输入这条命令后会连接的drep公链，之后会进入一个命令交互状态，目前可用的功能有数据，链的相关功能操作。
-## 数据
-* getAllBlocks
+After the DREP Cli is started, it will connect to the DREP chain.
+Meanwhile, you can input commands into the interface and perform operations to the chain.
 
-|   |   |
-|---|---|
-|Method|getAllBlocks|
-|Parameters|None|
-|Description|获取所有的区块数据|
-|Returns|Array|
-|Example|db.getAllBlocks()|
+# APIs
 
-#### Example Reruen 
-```
-[{
-   Data: {
-     TxCount: 1,
-     TxList: [{
-         Data: {...},
-         Sig: null
-     }]
-   },
-   Header: {
-     ChainId: "33333330333333303333333033333330333333303333333033333330333333303333333033333330333333303333333033333330333333303333333033333330",
-     GasLimit: "RWORgkT0AAA=",
-     GasUsed: "",
-     Height: 10,
-     LeaderPubKey: "0x0258fc6797a561c701ca2c1336b4ea641745bd427319c50e82fa044c8a85b18616",
-     MerkleRoot: "miMn/oiEs+F7TYCzjRmm7Yj9SvqRK1UxdW8pNJnyXYU=",
-     MinorPubKeys: ["0x0242901062c10d36702cdf75330f74a597ef8058245027a5d2d993418c089fd704", "0x027d6958df8109037eab3fb5f2ca2b03ddf5f1952eed1348f8019c29437770b150"],
-     PreviousHash: "e94imdsJSiPBxu3GqRJJ0DsJwOjzLePIx99aEcnMUqQ=",
-     StateRoot: "kovoW3vQnm4jgiwOeMxNzwlAwzpEdvraCpdrLqiKUDI=",
-     Timestamp: 1547280876,
-     TxHashes: ["miMn/oiEs+F7TYCzjRmm7Yj9SvqRK1UxdW8pNJnyXYU="],
-     Version: 1
-   },
-   MultiSig: {
-     Bitmap: "AQE=",
-     Sig: {
-       R: 3.7142117789744075e+76,
-       S: 9.782885030459428e+75
-     }
-   }
- }...]
-```
+## Blocks and balances
+
 * getBalance: function()
 
 |   |   |
 |---|---|
 |Method|getBalance|
-|Parameters| 1: 地址<br>2: 链id|
-|Description|获取地址在链上的token|
+|Parameters| 1: Address<br>2: Chain id|
+|Description|Get the account's balance with respect to the address|
 |Returns|Number|
 |Example|db.getBalance("0x772dec19e0b0b2d63a57a3a7fb03fc066d915e6b",0)|
 |Example Return| 0|
@@ -83,8 +62,8 @@
 |   |   |
 |---|---|
 |Method|getBlock|
-|Parameters|区块号|
-|Description|获取区块数据|
+|Parameters|Block height|
+|Description|Get the corresponding block|
 |Returns|Object|
 |Example|db.getBlock(10)|
 
@@ -123,11 +102,10 @@
 
 * getBlocksFrom: function()
 
-|   |   |
 |---|---|
 |Method|getBlocksFrom|
-|Parameters|1:开始区块号<br>2:获取区块数量|
-|Description|获取某一区间的区块数据|
+|Parameters|1:The height of the first block to get<br>2:The number of the blocks to get|
+|Description|Get the blocks between two heights|
 |Returns|Array|
 |Example| db.getBlocksFrom(10,2)|
 
