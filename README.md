@@ -46,6 +46,38 @@ Meanwhile, you can input commands into the interface and perform operations to t
 
 ## Blocks and balances
 
+```
+[{
+   Data: {
+     TxCount: 1,
+     TxList: [{
+         Data: {...},
+         Sig: null
+     }]
+   },
+   Header: {
+     ChainId: "33333330333333303333333033333330333333303333333033333330333333303333333033333330333333303333333033333330333333303333333033333330",
+     GasLimit: "RWORgkT0AAA=",
+     GasUsed: "",
+     Height: 10,
+     LeaderPubKey: "0x0258fc6797a561c701ca2c1336b4ea641745bd427319c50e82fa044c8a85b18616",
+     MerkleRoot: "miMn/oiEs+F7TYCzjRmm7Yj9SvqRK1UxdW8pNJnyXYU=",
+     MinorPubKeys: ["0x0242901062c10d36702cdf75330f74a597ef8058245027a5d2d993418c089fd704", "0x027d6958df8109037eab3fb5f2ca2b03ddf5f1952eed1348f8019c29437770b150"],
+     PreviousHash: "e94imdsJSiPBxu3GqRJJ0DsJwOjzLePIx99aEcnMUqQ=",
+     StateRoot: "kovoW3vQnm4jgiwOeMxNzwlAwzpEdvraCpdrLqiKUDI=",
+     Timestamp: 1547280876,
+     TxHashes: ["miMn/oiEs+F7TYCzjRmm7Yj9SvqRK1UxdW8pNJnyXYU="],
+     Version: 1
+   },
+   MultiSig: {
+     Bitmap: "AQE=",
+     Sig: {
+       R: 3.7142117789744075e+76,
+       S: 9.782885030459428e+75
+     }
+   }
+ }...]
+```
 * getBalance: function()
 
 |   |   |
@@ -142,21 +174,21 @@ Meanwhile, you can input commands into the interface and perform operations to t
 
 |   |   |
 |---|---|
-|Method|getAllBlocks|
-|Parameters|None|
+|Method|getByteCode|
+|Parameters|1:地址<br>2:链id|
 |Description|获取所有的区块数据|
 |Returns|Array|
-|Example Return| |
+|Example|  chain.check("0x772dec19e0b0b2d63a57a3a7fb03fc066d915e6b","0x00") |
 
 * getCodeHash: function()
 
 |   |   |
 |---|---|
-|Method|getAllBlocks|
-|Parameters|None|
+|Method|getCodeHash|
+|Parameters|1:地址<br>2:链id|
 |Description|获取所有的区块数据|
 |Returns|Array|
-|Example Return| |
+|Example|  chain.check("0x772dec19e0b0b2d63a57a3a7fb03fc066d915e6b","0x00") |
 
 
 * getHighestBlock: function()
@@ -165,7 +197,7 @@ Meanwhile, you can input commands into the interface and perform operations to t
 |---|---|
 |Method|getHighestBlock|
 |Parameters|None|
-|Description|获取最新区块数据|
+|Description|获取最新区块|
 |Returns|Object|
 |Example | db.getHighestBlock()|
 
@@ -355,22 +387,41 @@ Meanwhile, you can input commands into the interface and perform operations to t
 
 |   |   |
 |---|---|
-|Method|accountList|
+|Method|addressList|
 |Parameters|None|
 |Description|列出本地账号|
 |Returns|Array|
 |Example | account.accountList()|
 
+```$xslt
+["0x772dec19e0b0b2d63a57a3a7fb03fc066d915e6b"]
+```
 * createAccount
 
 |   |   |
 |---|---|
-|Method|getAllBlocks|
+|Method|createAccount|
 |Parameters|None|
 |Description|创建账号|
 |Returns|String|
 |Example| account.createAccount()|
 
+```$xslt
+0x772dec19e0b0b2d63a57a3a7fb03fc066d915e6b
+```
+* createAccount
+
+|   |   |
+|---|---|
+|Method|dumpPrikey|
+|Parameters|地址|
+|Description|导出私钥|
+|Returns|String|
+|Example| dumpPrikey.createAccount()|
+
+```$xslt
+
+```
 # Contact
 
 # License

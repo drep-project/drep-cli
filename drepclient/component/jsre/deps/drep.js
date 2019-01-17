@@ -1518,9 +1518,9 @@ require=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=
 
         var methods = function () {
 
-            var accountList = new Method({
-                name: 'accountList',
-                call: 'account_accountList',
+            var addressList = new Method({
+                name: 'addressList',
+                call: 'account_addressList',
                 params: 0,
             });
 
@@ -1530,7 +1530,13 @@ require=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=
                 params: 0,
             });
 
-            return [accountList,createAccount]
+            var dumpPrikey = new Method({
+                name: 'dumpPrikey',
+                call: 'account_dumpPrikey',
+                params: 1,
+            });
+
+            return [addressList,createAccount,dumpPrikey]
         }
 
         module.exports = ACCOUNT;
