@@ -1,11 +1,12 @@
 package common
 
 import (
+	"io/ioutil"
 	"os"
+	"path"
 	"path/filepath"
 )
 
-// IsDirExists 用于判断指定的目录是否存在
 func IsDirExists(path string) bool {
 	fi, err := os.Stat(path)
 
@@ -18,7 +19,6 @@ func IsDirExists(path string) bool {
 	panic("not reached")
 }
 
-// IsFileExists 用于判断指定的文件是否存在
 func IsFileExists(path string) bool {
 	fi, err := os.Stat(path)
 
@@ -31,7 +31,47 @@ func IsFileExists(path string) bool {
 	panic("not reached")
 }
 
-// AbsolutePath returns datadir + filename, or filename if it is absolute.
+// EachChildFile get child fi  and process ,if get error after processing stop, if get a stop flag , stop
+func EachChildFile(directory string, process func (path string) (bool, error) ) error {
+	fds, err := ioutil.ReadDir(directory)
+	if err != nil {
+		return err
+	}
+
+	for _, fi := range fds {
+		if !fi.IsDir() {
+			isContinue, err := process(path.Join(directory, fi.Name()))
+			if !isContinue {
+				return nil
+			}
+			if err != nil {
+				return err
+			}
+		}
+	}
+	return nil
+}
+
+func EachDirectory(directory string, process func (path string)  (bool, error)  ) error {
+	fds, err := ioutil.ReadDir(directory)
+	if err != nil {
+		return err
+	}
+
+	for _, fi := range fds {
+		if fi.IsDir() {
+			isContinue, err := process(path.Join(directory, fi.Name()))
+			if !isContinue {
+				return nil
+			}
+			if err != nil {
+				return err
+			}
+		}
+	}
+	return nil
+}
+
 func AbsolutePath(datadir string, filename string) string {
 	if filepath.IsAbs(filename) {
 		return filename

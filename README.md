@@ -383,7 +383,7 @@ Meanwhile, you can input commands into the interface and perform operations to t
 |Example| chain.send("0x772dec19e0b0b2d63a57a3a7fb03fc066d915e6b","0x00","10")|
 
 ### 账号
-* accountList
+* addressList
 
 |   |   |
 |---|---|
@@ -391,7 +391,7 @@ Meanwhile, you can input commands into the interface and perform operations to t
 |Parameters|None|
 |Description|列出本地账号|
 |Returns|Array|
-|Example | account.accountList()|
+|Example | account.addressList()|
 
 ```$xslt
 ["0x772dec19e0b0b2d63a57a3a7fb03fc066d915e6b"]
@@ -409,7 +409,7 @@ Meanwhile, you can input commands into the interface and perform operations to t
 ```$xslt
 0x772dec19e0b0b2d63a57a3a7fb03fc066d915e6b
 ```
-* createAccount
+* dumpPrikey
 
 |   |   |
 |---|---|
@@ -417,11 +417,48 @@ Meanwhile, you can input commands into the interface and perform operations to t
 |Parameters|地址|
 |Description|导出私钥|
 |Returns|String|
-|Example| dumpPrikey.createAccount()|
+|Example| account.dumpPrikey()|
 
-```$xslt
+* open
 
-```
+|   |   |
+|---|---|
+|Method|open|
+|Parameters|密码|
+|Description|打开钱包|
+|Returns|none|
+|Example| account.open()|
+
+* close
+
+|   |   |
+|---|---|
+|Method|close|
+|Parameters|None|
+|Description|关闭钱包|
+|Returns|none|
+|Example| account.close()|
+
+* lock
+
+|   |   |
+|---|---|
+|Method|lock|
+|Parameters|None|
+|Description|锁定密码|
+|Returns|none|
+|Example| account.lock()|
+
+* unLock
+
+|   |   |
+|---|---|
+|Method|open|
+|Parameters|密码|
+|Description|解锁钱包|
+|Returns|none|
+|Example| account.unLock()|
+
 # Contact
 
 # License

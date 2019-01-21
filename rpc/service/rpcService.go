@@ -74,11 +74,11 @@ func (rpcService *RpcService) Init(executeContext *app.ExecuteContext) error {
 	rpcService.HttpEndpoint = rpcService.RpcConfig.HTTPEndpoint()
 	rpcService.WsEndpoint = rpcService.RpcConfig.WSEndpoint()
 	rpcService.RestEndpoint = rpcService.RpcConfig.RestEndpoint()
-	rpcService.RpcAPIs = executeContext.GetApis()
 	return nil
 }
 
 func (rpcService *RpcService) Start(executeContext *app.ExecuteContext) error {
+	rpcService.RpcAPIs = executeContext.GetApis()  //api may delay
 	// All API endpoints started successfully
 	//rpcserver.RpcAPIs = apis
 	// Start the various API endpoints, terminating all in case of errors
