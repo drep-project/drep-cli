@@ -1,6 +1,7 @@
 package service
 
 import (
+	"BlockChainTest/util/flags"
 	"encoding/json"
 	"fmt"
 	"net"
@@ -69,6 +70,7 @@ func (rpcService *RpcService) Init(executeContext *app.ExecuteContext) error {
 	if err != nil {
 		return err
 	}
+
 	rpcService.setRpcLog(executeContext.CliContext, executeContext.CommonConfig.HomeDir)
 	rpcService.IpcEndpoint = rpcService.RpcConfig.IPCEndpoint()
 	rpcService.HttpEndpoint = rpcService.RpcConfig.HTTPEndpoint()
@@ -78,9 +80,8 @@ func (rpcService *RpcService) Init(executeContext *app.ExecuteContext) error {
 }
 
 func (rpcService *RpcService) Start(executeContext *app.ExecuteContext) error {
-	rpcService.RpcAPIs = executeContext.GetApis()  //api may delay
 	// All API endpoints started successfully
-	//rpcserver.RpcAPIs = apis
+	rpcService.RpcAPIs = executeContext.GetApis() //api may delay
 	// Start the various API endpoints, terminating all in case of errors
 	if err := rpcService.StartInProc(rpcService.RpcAPIs); err != nil {
 		return err
@@ -297,81 +298,94 @@ func (rpcService *RpcService) setIPC(ctx *cli.Context, homeDir string) {
 // setHTTP creates the HTTP RPC listener interface string from the set
 // command line flags, returning empty if the HTTP endpoint is disabled.
 func (rpcService *RpcService) setHTTP(ctx *cli.Context, homeDir string) {
-	rpcService.RpcConfig.HTTPEnabled = true
-	if !ctx.GlobalBool(HTTPEnabledFlag.Name) {
-		rpcService.RpcConfig.HTTPEnabled = false
-		return
+	if !rpcService.RpcConfig.HTTPEnabled {
+		if ctx.GlobalBool(flags.HTTPEnabledFlag.Name) {
+			rpcService.RpcConfig.HTTPEnabled = true
+		}
 	}
 
-	if ctx.GlobalIsSet(HTTPListenAddrFlag.Name) {
-		rpcService.RpcConfig.HTTPHost = ctx.GlobalString(HTTPListenAddrFlag.Name)
+	if ctx.GlobalIsSet(flags.HTTPListenAddrFlag.Name) {
+		rpcService.RpcConfig.HTTPHost = ctx.GlobalString(flags.HTTPListenAddrFlag.Name)
 	} else {
-		rpcService.RpcConfig.HTTPHost = rpcTypes.DefaultHTTPHost
+		if rpcService.RpcConfig.HTTPHost == "" {
+			rpcService.RpcConfig.HTTPHost = rpcTypes.DefaultHTTPHost
+		}
 	}
 
-	if ctx.GlobalIsSet(HTTPPortFlag.Name) {
-		rpcService.RpcConfig.HTTPPort = ctx.GlobalInt(HTTPPortFlag.Name)
+	if ctx.GlobalIsSet(flags.HTTPPortFlag.Name) {
+		rpcService.RpcConfig.HTTPPort = ctx.GlobalInt(flags.HTTPPortFlag.Name)
+	}else{
+		if rpcService.RpcConfig.HTTPPort == 0 {
+			rpcService.RpcConfig.HTTPPort = rpcTypes.DefaultHTTPPort
+		}
+	}
+
+	if ctx.GlobalIsSet(flags.HTTPCORSDomainFlag.Name) {
+		rpcService.RpcConfig.HTTPCors = splitAndTrim(ctx.GlobalString(flags.HTTPCORSDomainFlag.Name))
+	}
+
+	if ctx.GlobalIsSet(flags.HTTPApiFlag.Name) {
+		rpcService.RpcConfig.HTTPModules = splitAndTrim(ctx.GlobalString(flags.HTTPApiFlag.Name))
+	}
+
+	if ctx.GlobalIsSet(flags.HTTPVirtualHostsFlag.Name) {
+		rpcService.RpcConfig.HTTPVirtualHosts = splitAndTrim(ctx.GlobalString(flags.HTTPVirtualHostsFlag.Name))
 	} else {
-		rpcService.RpcConfig.HTTPPort = rpcTypes.DefaultHTTPPort
-	}
-
-	if ctx.GlobalIsSet(HTTPCORSDomainFlag.Name) {
-		rpcService.RpcConfig.HTTPCors = splitAndTrim(ctx.GlobalString(HTTPCORSDomainFlag.Name))
-	}
-
-	if ctx.GlobalIsSet(HTTPApiFlag.Name) {
-		rpcService.RpcConfig.HTTPModules = splitAndTrim(ctx.GlobalString(HTTPApiFlag.Name))
-	}
-
-	if ctx.GlobalIsSet(HTTPVirtualHostsFlag.Name) {
-		rpcService.RpcConfig.HTTPVirtualHosts = splitAndTrim(ctx.GlobalString(HTTPVirtualHostsFlag.Name))
-	} else {
-		rpcService.RpcConfig.HTTPVirtualHosts = []string{"localhost"}
+		if rpcService.RpcConfig.HTTPVirtualHosts == nil {
+			rpcService.RpcConfig.HTTPVirtualHosts = []string{"localhost"}
+		}
 	}
 }
 
 // setHTTP creates the HTTP RPC listener interface string from the set
 // command line flags, returning empty if the HTTP endpoint is disabled.
 func (rpcService *RpcService) setRest(ctx *cli.Context, homeDir string) {
-	rpcService.RpcConfig.RESTEnabled = true
-	if !ctx.GlobalBool(RESTEnabledFlag.Name) {
-		rpcService.RpcConfig.RESTEnabled = false
-		return
+	if !rpcService.RpcConfig.RESTEnabled {
+		if ctx.GlobalBool(flags.RESTEnabledFlag.Name) {
+			rpcService.RpcConfig.RESTEnabled = true
+		}
 	}
 
 	if ctx.GlobalIsSet(RESTListenAddrFlag.Name) {
 		rpcService.RpcConfig.RESTHost = ctx.GlobalString(RESTListenAddrFlag.Name)
 	} else {
-		rpcService.RpcConfig.RESTHost = rpcTypes.DefaultRestHost
+		if rpcService.RpcConfig.RESTHost == "" {
+			rpcService.RpcConfig.RESTHost = rpcTypes.DefaultRestHost
+		}
 	}
 
 	if ctx.GlobalIsSet(RESTPortFlag.Name) {
 		rpcService.RpcConfig.RESTPort = ctx.GlobalInt(RESTPortFlag.Name)
 	} else {
-		rpcService.RpcConfig.RESTPort = rpcTypes.DefaultRestPort
+		if rpcService.RpcConfig.RESTPort == 0 {
+			rpcService.RpcConfig.RESTPort = rpcTypes.DefaultRestPort
+		}
 	}
 }
 
 // setWS creates the WebSocket RPC listener interface string from the set
 // command line flags, returning empty if the HTTP endpoint is disabled.
 func (rpcService *RpcService) setWS(ctx *cli.Context, homeDir string) {
-
-	rpcService.RpcConfig.WSEnabled = true
-	if !ctx.GlobalBool(WSEnabledFlag.Name) {
-		rpcService.RpcConfig.WSEnabled = false
-		return
+	if !rpcService.RpcConfig.WSEnabled {
+		if ctx.GlobalBool(flags.WSEnabledFlag.Name) {
+			rpcService.RpcConfig.WSEnabled = true
+		}
 	}
 
 	if ctx.GlobalIsSet(WSListenAddrFlag.Name) {
 		rpcService.RpcConfig.WSHost = ctx.GlobalString(WSListenAddrFlag.Name)
 	} else {
-		rpcService.RpcConfig.WSHost = rpcTypes.DefaultWSHost
+		if rpcService.RpcConfig.WSHost == "" {
+			rpcService.RpcConfig.WSHost = rpcTypes.DefaultWSHost
+		}
 	}
 
 	if ctx.GlobalIsSet(WSPortFlag.Name) {
 		rpcService.RpcConfig.WSPort = ctx.GlobalInt(WSPortFlag.Name)
 	} else {
-		rpcService.RpcConfig.WSPort = rpcTypes.DefaultWSPort
+		if rpcService.RpcConfig.WSPort == 0 {
+			rpcService.RpcConfig.WSPort = rpcTypes.DefaultWSPort
+		}
 	}
 
 	if ctx.GlobalIsSet(WSAllowedOriginsFlag.Name) {

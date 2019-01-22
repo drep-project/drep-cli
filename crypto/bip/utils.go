@@ -14,8 +14,8 @@ import (
 )
 
 var (
-	curve                 = secp256k1.S256()
-	curveParams           = curve.Params()
+	curve          = secp256k1.S256()
+	curveParams    = curve.Params()
 	base58Encoding = basen.NewEncoding("123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz")
 )
 

@@ -1,25 +1,25 @@
 package service
 
 import (
+	accountCommponent "github.com/drep-project/drepcli/accounts/component"
 	"github.com/drep-project/drepcli/crypto"
 	"github.com/drep-project/drepcli/crypto/secp256k1"
-	accountCommponent "github.com/drep-project/drepcli/accounts/component"
 	"github.com/pkg/errors"
 )
 
 type AccountApi struct {
-   Wallet *accountCommponent.Wallet
+	Wallet *accountCommponent.Wallet
 }
 
-func (accountapi *AccountApi) AddressList() ([]*crypto.CommonAddress, error){
+func (accountapi *AccountApi) AddressList() ([]*crypto.CommonAddress, error) {
 	if !accountapi.Wallet.IsOpen() {
 		return nil, errors.New("wallet is not open")
 	}
-	return  accountapi.Wallet.ListAddress()
+	return accountapi.Wallet.ListAddress()
 }
 
 // CreateAccount create a new account and return address
-func (accountapi *AccountApi) CreateAccount() (*crypto.CommonAddress, error){
+func (accountapi *AccountApi) CreateAccount() (*crypto.CommonAddress, error) {
 	if !accountapi.Wallet.IsOpen() {
 		return nil, errors.New("wallet is not open")
 	}
@@ -31,7 +31,7 @@ func (accountapi *AccountApi) CreateAccount() (*crypto.CommonAddress, error){
 }
 
 // DumpPrikey dumpPrivate
-func (accountapi *AccountApi) DumpPrikey(address *crypto.CommonAddress) (*secp256k1.PrivateKey, error){
+func (accountapi *AccountApi) DumpPrikey(address *crypto.CommonAddress) (*secp256k1.PrivateKey, error) {
 	if !accountapi.Wallet.IsOpen() {
 		return nil, errors.New("wallet is not open")
 	}
@@ -41,7 +41,7 @@ func (accountapi *AccountApi) DumpPrikey(address *crypto.CommonAddress) (*secp25
 
 	node, err := accountapi.Wallet.GetAccountByAddress(address)
 	if err != nil {
-		return  nil, err
+		return nil, err
 	}
 	return node.PrivateKey, nil
 }

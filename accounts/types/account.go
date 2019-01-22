@@ -1,14 +1,14 @@
 package types
 
 import (
-	"github.com/drep-project/drepcli/crypto"
-	"github.com/drep-project/drepcli/crypto/secp256k1"
 	"errors"
 	"github.com/drep-project/drepcli/common"
+	"github.com/drep-project/drepcli/crypto"
+	"github.com/drep-project/drepcli/crypto/secp256k1"
 	"math/big"
 )
 
-var  (
+var (
 	RootChain common.ChainIdType
 )
 
@@ -18,15 +18,15 @@ var (
 )
 
 type Node struct {
-	Address *crypto.CommonAddress
+	Address    *crypto.CommonAddress
 	PrivateKey *secp256k1.PrivateKey
-	ChainId 	common.ChainIdType
-	ChainCode []byte
+	ChainId    common.ChainIdType
+	ChainCode  []byte
 }
 
 func NewNode(parent *Node, chainId common.ChainIdType) *Node {
 	var (
-		prvKey *secp256k1.PrivateKey
+		prvKey    *secp256k1.PrivateKey
 		chainCode []byte
 	)
 
@@ -50,10 +50,10 @@ func NewNode(parent *Node, chainId common.ChainIdType) *Node {
 	}
 	address := crypto.PubKey2Address(prvKey.PubKey())
 	return &Node{
-		Address : &address,
+		Address:    &address,
 		PrivateKey: prvKey,
-		ChainId: chainId,
-		ChainCode: chainCode,
+		ChainId:    chainId,
+		ChainCode:  chainCode,
 	}
 }
 
@@ -78,7 +78,7 @@ type Account struct {
 	Storage *Storage
 }
 
-func (account *Account) Sign(hash []byte)([]byte, error) {
+func (account *Account) Sign(hash []byte) ([]byte, error) {
 	return crypto.Sign(hash, account.Node.PrivateKey)
 }
 
@@ -91,9 +91,9 @@ func NewNormalAccount(parent *Node, chainId common.ChainIdType) (*Account, error
 	address := node.Address
 	storage := NewStorage()
 	account := &Account{
-		Address:       address,
-		Node:          node,
-		Storage:       storage,
+		Address: address,
+		Node:    node,
+		Storage: storage,
 	}
 	return account, nil
 }
@@ -103,7 +103,7 @@ func NewContractAccount(callerAddr crypto.CommonAddress, chainId common.ChainIdT
 	storage := NewStorage()
 	account := &Account{
 		Address: &address,
-		Node: &Node{ChainId: chainId},
+		Node:    &Node{ChainId: chainId},
 		Storage: storage,
 	}
 	return account, nil

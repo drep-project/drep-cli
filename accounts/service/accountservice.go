@@ -17,11 +17,12 @@ var (
 		Usage: "Directory for the keystore (default = inside the homedir)",
 	}
 )
+
 // CliService provides an interactive command line window
 type AccountService struct {
 	config *accountTypes.Config
 	wallet *accountCommponent.Wallet
-	apis []app.API
+	apis   []app.API
 }
 
 // Name name
@@ -43,9 +44,11 @@ func (accountService *AccountService) Flags() []cli.Flag {
 func (accountService *AccountService) Init(executeContext *app.ExecuteContext) error {
 	accountService.config = &accountTypes.Config{}
 	config := executeContext.GetConfig(accountService.Name())
-	err := json.Unmarshal(config,accountService.config)
-	if err != nil {
-		return err
+	if config != nil {
+		err := json.Unmarshal(config, accountService.config)
+		if err != nil {
+			return err
+		}
 	}
 
 	if executeContext.CliContext.IsSet(KeyStoreDirFlag.Name) {
@@ -55,11 +58,12 @@ func (accountService *AccountService) Init(executeContext *app.ExecuteContext) e
 	if !path2.IsAbs(accountService.config.KeyStoreDir) {
 		if accountService.config.KeyStoreDir == "" {
 			accountService.config.KeyStoreDir = path2.Join(executeContext.CommonConfig.HomeDir, "KeyStore")
-		}else {
+		} else {
 			accountService.config.KeyStoreDir = path2.Join(executeContext.CommonConfig.HomeDir, accountService.config.KeyStoreDir)
 		}
 	}
 
+	var err error
 	accountService.wallet, err = accountCommponent.NewWallet(accountService.config, accountTypes.RootChain)
 	if err != nil {
 		return err
@@ -67,19 +71,19 @@ func (accountService *AccountService) Init(executeContext *app.ExecuteContext) e
 
 	accountService.apis = []app.API{
 		app.API{
-			Namespace : "account",
-			Version   :"1.0",
-			Service:	&AccountApi{
-				Wallet : accountService.wallet,
+			Namespace: "account",
+			Version:   "1.0",
+			Service: &AccountApi{
+				Wallet: accountService.wallet,
 			},
-			Public  :  true ,
+			Public: true,
 		},
 	}
 	return nil
 }
 
 func (accountService *AccountService) Start(executeContext *app.ExecuteContext) error {
-		return  nil
+	return nil
 }
 
 func (accountService *AccountService) Stop(executeContext *app.ExecuteContext) error {

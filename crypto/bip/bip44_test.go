@@ -20,12 +20,11 @@ func TestBip392(t *testing.T) {
 	token := make([]byte, 32)
 	rand.Read(token)
 
-	mnemonic,_ := NewMnemonic(token)
-	masterKey,_ := NewKeyFromMnemonic(mnemonic,"111111",50,0,0,0)
+	mnemonic, _ := NewMnemonic(token)
+	masterKey, _ := NewKeyFromMnemonic(mnemonic, "111111", 50, 0, 0, 0)
 	//keys,_ := NewKeyFromMasterKey(masterKey,50,0,1,0)
 	pub := masterKey.PublicKey()
-	pub2,_ := pub.NewChildKey(1000)
+	pub2, _ := pub.NewChildKey(1000)
 	fmt.Println(pub2)
-
 
 }

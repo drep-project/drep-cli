@@ -199,7 +199,7 @@ func Hash256(data []byte) []byte {
 	h.Write(data)
 	ret := h.Sum(nil)
 	hash := make([]byte, ByteLen)
-	copy(hash[ByteLen - len(ret):], ret)
+	copy(hash[ByteLen-len(ret):], ret)
 	return hash
 }
 
@@ -224,7 +224,7 @@ func ConcatHash256(args ...[]byte) []byte {
 	concat := make([]byte, totalLen)
 	i := 0
 	for _, bytes := range args {
-		copy(concat[i: ], bytes)
+		copy(concat[i:], bytes)
 		i += len(bytes)
 	}
 	hash := Sum256(concat)
@@ -233,7 +233,7 @@ func ConcatHash256(args ...[]byte) []byte {
 
 func StackHash(hashList [][]byte) []byte {
 	totalLen := 0
-	buf := make([]byte, len(hashList) * ByteLen)
+	buf := make([]byte, len(hashList)*ByteLen)
 	for _, hash := range hashList {
 		if hash != nil {
 			copy(buf[totalLen:], hash)

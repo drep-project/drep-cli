@@ -453,13 +453,12 @@ func TestSchnorrThreshold(t *testing.T) {
 	}
 }
 
-
 func TestAddAffine(t *testing.T) {
-	pk1,_ := secp256k1.GeneratePrivateKey(nil)
-	pk2,_ := secp256k1.GeneratePrivateKey(nil)
+	pk1, _ := secp256k1.GeneratePrivateKey(nil)
+	pk2, _ := secp256k1.GeneratePrivateKey(nil)
 
-	msg := []byte{1,5,12,12,5,7,}
-	hash :=sha3.Hash256(msg)
+	msg := []byte{1, 5, 12, 12, 5, 7}
+	hash := sha3.Hash256(msg)
 
 	nonce1 := nonceRFC6979(pk1.Serialize(), hash, nil,
 		Sha256VersionStringRFC6979)
@@ -473,11 +472,11 @@ func TestAddAffine(t *testing.T) {
 	//	}
 	allPksSum1 := CombinePubkeys([]*secp256k1.PublicKey{pubkey2})
 	allPksSum2 := CombinePubkeys([]*secp256k1.PublicKey{pubkey1})
-	sig1, _ := schnorrPartialSign(secp256k1.S256(),hash, pk1.Serialize(), nonce1, allPksSum1, testSchnorrSha256Hash)
-	sig2, _ := schnorrPartialSign(secp256k1.S256(),hash, pk2.Serialize(), nonce2, allPksSum2, testSchnorrSha256Hash)
+	sig1, _ := schnorrPartialSign(secp256k1.S256(), hash, pk1.Serialize(), nonce1, allPksSum1, testSchnorrSha256Hash)
+	sig2, _ := schnorrPartialSign(secp256k1.S256(), hash, pk2.Serialize(), nonce2, allPksSum2, testSchnorrSha256Hash)
 
-	combinedSignature, _ := CombineSigs(secp256k1.S256(), []*Signature{sig1,sig2})
-	allPksSum := CombinePubkeys([]*secp256k1.PublicKey{pk1.PubKey(),pk2.PubKey()})
+	combinedSignature, _ := CombineSigs(secp256k1.S256(), []*Signature{sig1, sig2})
+	allPksSum := CombinePubkeys([]*secp256k1.PublicKey{pk1.PubKey(), pk2.PubKey()})
 	isOk, _ := schnorrVerify(combinedSignature.Serialize(), allPksSum, hash, testSchnorrSha256Hash)
 	fmt.Print(isOk)
 }

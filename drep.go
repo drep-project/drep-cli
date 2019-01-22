@@ -3,14 +3,16 @@ package main
 import (
 	"fmt"
 
+	"github.com/drep-project/drepcli/log"
 	"github.com/drep-project/drepcli/app"
 	cliService "github.com/drep-project/drepcli/drepclient/service"
-	"github.com/drep-project/drepcli/log"
+	accountService "github.com/drep-project/drepcli/accounts/service"
 )
 
 func main() {
 	drepApp := app.NewApp()
 	drepApp.AddService(&log.LogServiice{})
+	drepApp.AddService(&accountService.AccountService{})
 	//drepApp.AddService(&rpcService.RpcService{})
 	drepApp.AddService(&cliService.CliService{})
 

@@ -190,7 +190,6 @@ func (p PublicKey) GetType() int {
 	return ecTypeSecp256k1
 }
 
-
 func (p *PublicKey) UnmarshalText(input []byte) error {
 	bytes := ethhexutil.Bytes{}
 	err := bytes.UnmarshalJSON(input)
@@ -207,11 +206,9 @@ func (p *PublicKey) UnmarshalText(input []byte) error {
 	return nil
 }
 
-
 func (p *PublicKey) UnmarshalJSON(input []byte) error {
 	return p.UnmarshalText(input)
 }
-
 
 func (p *PublicKey) MarshalText() ([]byte, error) {
 	return hexutil.Bytes(p.Serialize()).MarshalText()

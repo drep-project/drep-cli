@@ -59,7 +59,7 @@ func GeneratePrivateKey(rad io.Reader) (*PrivateKey, error) {
 	if rad == nil {
 		rad = rand.Reader
 	}
-	key, err := ecdsa.GenerateKey(S256(),rad)
+	key, err := ecdsa.GenerateKey(S256(), rad)
 	if err != nil {
 		return nil, err
 	}
@@ -126,14 +126,13 @@ func (p PrivateKey) GetType() int {
 	return ecTypeSecp256k1
 }
 
-
 func (p *PrivateKey) UnmarshalText(input []byte) error {
 	bytes := ethhexutil.Bytes{}
 	err := bytes.UnmarshalJSON(input)
 	if err != nil {
 		return err
 	}
-	privKey, _  := PrivKeyFromBytes(bytes)
+	privKey, _ := PrivKeyFromBytes(bytes)
 	if err != nil {
 		return err
 	}
@@ -142,11 +141,9 @@ func (p *PrivateKey) UnmarshalText(input []byte) error {
 	return nil
 }
 
-
 func (p *PrivateKey) UnmarshalJSON(input []byte) error {
 	return p.UnmarshalText(input)
 }
-
 
 func (p *PrivateKey) MarshalText() ([]byte, error) {
 	return hexutil.Bytes(p.Serialize()).MarshalText()

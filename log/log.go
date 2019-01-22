@@ -1,9 +1,9 @@
 package log
 
 import (
+	"github.com/drep-project/drepcli/common"
 	"github.com/mattn/go-colorable"
 	"github.com/mattn/go-isatty"
-	"github.com/drep-project/drepcli/common"
 	"io"
 	"os"
 )

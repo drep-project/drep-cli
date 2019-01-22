@@ -80,7 +80,7 @@ func Example_verifySignature() {
 
 	// Verify the signature for the message using the public key.
 	message := "test message"
-	messageHash :=  sha3.Hash256([]byte(message))
+	messageHash := sha3.Hash256([]byte(message))
 	verified := signature.Verify(messageHash, pubKey)
 	fmt.Println("Signature Verified?", verified)
 

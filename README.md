@@ -1,4 +1,4 @@
-# DREP Cli
+# DREP CLI
 
 DREP Command Line Interface, a JSON-RPC based client for connecting to the DREP chain to query information on the chain
 and send transactions.

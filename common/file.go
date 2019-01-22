@@ -32,7 +32,7 @@ func IsFileExists(path string) bool {
 }
 
 // EachChildFile get child fi  and process ,if get error after processing stop, if get a stop flag , stop
-func EachChildFile(directory string, process func (path string) (bool, error) ) error {
+func EachChildFile(directory string, process func(path string) (bool, error)) error {
 	fds, err := ioutil.ReadDir(directory)
 	if err != nil {
 		return err
@@ -52,7 +52,7 @@ func EachChildFile(directory string, process func (path string) (bool, error) ) 
 	return nil
 }
 
-func EachDirectory(directory string, process func (path string)  (bool, error)  ) error {
+func EachDirectory(directory string, process func(path string) (bool, error)) error {
 	fds, err := ioutil.ReadDir(directory)
 	if err != nil {
 		return err

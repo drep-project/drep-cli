@@ -38,6 +38,7 @@ func NewApp() *DrepApp {
 		App:     cli.NewApp(),
 	}
 }
+
 // AddService add a server into context
 func (mApp DrepApp) AddService(service Service) {
 	mApp.Context.AddService(service)

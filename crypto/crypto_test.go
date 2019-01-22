@@ -17,11 +17,11 @@
 package crypto
 
 import (
-	"github.com/drep-project/drepcli/crypto/secp256k1"
 	"bytes"
 	"crypto/ecdsa"
 	"encoding/hex"
 	"encoding/json"
+	"github.com/drep-project/drepcli/crypto/secp256k1"
 	"io/ioutil"
 	"math/big"
 	"os"
@@ -63,7 +63,7 @@ func TestUnmarshalPubkey(t *testing.T) {
 
 	var (
 		hexPrivStr, _ = hex.DecodeString("0x04760c4460e5336ac9bbd87952a3c7ec4363fc0a97bd31c86430806e287b437fd1b01abc6e1db640cf3106b520344af1d58b00b57823db3e1407cbc433e1b6d04d")
-		dec    = &ecdsa.PublicKey{
+		dec           = &ecdsa.PublicKey{
 			Curve: secp256k1.S256(),
 			X:     common.MustDecodeBig("0x760c4460e5336ac9bbd87952a3c7ec4363fc0a97bd31c86430806e287b437fd1"),
 			Y:     common.MustDecodeBig("0xb01abc6e1db640cf3106b520344af1d58b00b57823db3e1407cbc433e1b6d04d"),
@@ -80,7 +80,6 @@ func TestUnmarshalPubkey(t *testing.T) {
 }
 
 func TestSign(t *testing.T) {
-
 
 	key, _ := FromPrivString(testPrivHex)
 	addr := Hex2Address(testAddrHex)

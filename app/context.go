@@ -50,9 +50,9 @@ type API struct {
 
 // Services can customize their own configuration, command parameters, interfaces, services
 type Service interface {
-	Name() string			// service  name must be unique
-	Api() []API				// Interfaces required for services
-	Flags() []cli.Flag		// flags required for services
+	Name() string      // service  name must be unique
+	Api() []API        // Interfaces required for services
+	Flags() []cli.Flag // flags required for services
 
 	Init(executeContext *ExecuteContext) error
 	Start(executeContext *ExecuteContext) error

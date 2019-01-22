@@ -30,6 +30,7 @@ import (
 	"github.com/drep-project/drepcli/crypto/secp256k1"
 	"github.com/drep-project/drepcli/crypto/sha3"
 )
+
 var (
 	secp256k1N, _  = new(big.Int).SetString("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141", 16)
 	secp256k1halfN = new(big.Int).Div(secp256k1N, big.NewInt(2))
@@ -56,7 +57,6 @@ func Keccak256Hash(data ...[]byte) (h Hash) {
 	d.Sum(h[:0])
 	return h
 }
-
 
 // CreateAddress creates an ethereum address given the bytes and the nonce
 func CreateAddress(b CommonAddress, nonce uint64) CommonAddress {
@@ -88,7 +88,7 @@ func LoadECDSA(file string) (*secp256k1.PrivateKey, error) {
 	if err != nil {
 		return nil, err
 	}
-	return secp256k1.NewPrivateKey(new (big.Int).SetBytes(key)), nil
+	return secp256k1.NewPrivateKey(new(big.Int).SetBytes(key)), nil
 }
 
 // SaveECDSA saves a secp256k1 private key to the given file with

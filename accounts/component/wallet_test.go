@@ -1,10 +1,10 @@
 package component
 
 import (
-	accountTypes "github.com/drep-project/drepcli/accounts/types"
 	"BlockChainTest/core/crypto/secp256k1"
 	"BlockChainTest/core/crypto/sha3"
 	"fmt"
+	accountTypes "github.com/drep-project/drepcli/accounts/types"
 	"log"
 	"testing"
 )
@@ -16,7 +16,7 @@ func TestWallet(t *testing.T) {
 	fmt.Println(newNode)
 
 	accountConfig := &accountTypes.Config{
-		KeyStoreDir:"TestWallet",
+		KeyStoreDir: "TestWallet",
 	}
 	wallet, err := NewWallet(accountConfig, accountTypes.RootChain)
 	wallet.chainId = accountTypes.RootChain
@@ -30,10 +30,10 @@ func TestWallet(t *testing.T) {
 	}
 
 	nodes := []*accountTypes.Node{}
-	for i:=0;i<10;i++ {
-		node,err := wallet.NewAccount()
+	for i := 0; i < 10; i++ {
+		node, err := wallet.NewAccount()
 		pk := node.PrivateKey.PubKey()
-		isOnCurve := secp256k1.S256().IsOnCurve(pk.X,pk.Y)
+		isOnCurve := secp256k1.S256().IsOnCurve(pk.X, pk.Y)
 		if !isOnCurve {
 			log.Fatal("error public key")
 		}
@@ -59,13 +59,13 @@ func TestWallet(t *testing.T) {
 
 	wallet.Open(password)
 
-	for _, node := range  nodes {
+	for _, node := range nodes {
 		reloadNode, err := wallet.GetAccountByAddress(node.Address)
 		if err != nil {
 			log.Fatal("reload wallet error")
 		}
 		pk := reloadNode.PrivateKey.PubKey()
-		isOnCurve := secp256k1.S256().IsOnCurve(pk.X,pk.Y)
+		isOnCurve := secp256k1.S256().IsOnCurve(pk.X, pk.Y)
 		if !isOnCurve {
 			log.Fatal("error public key")
 		}

@@ -3,11 +3,11 @@ package component
 import (
 	"encoding/json"
 	"fmt"
+	accountTypes "github.com/drep-project/drepcli/accounts/types"
 	"github.com/drep-project/drepcli/common"
 	"github.com/drep-project/drepcli/crypto"
 	"github.com/drep-project/drepcli/crypto/aes"
 	"github.com/drep-project/drepcli/crypto/secp256k1"
-	accountTypes "github.com/drep-project/drepcli/accounts/types"
 	"github.com/drep-project/drepcli/log"
 	"github.com/pkg/errors"
 	"github.com/syndtr/goleveldb/leveldb"
@@ -29,28 +29,28 @@ type keyStore interface {
 }
 
 type CryptedNode struct {
-	CryptoPrivateKey []byte  			`json:"cryptoPrivateKey"`
-	PrivateKey *secp256k1.PrivateKey 	`json:"-"`
-	ChainId 	common.ChainIdType		`json:"chainId"`
-	ChainCode []byte					`json:"chainCode"`
+	CryptoPrivateKey []byte                `json:"cryptoPrivateKey"`
+	PrivateKey       *secp256k1.PrivateKey `json:"-"`
+	ChainId          common.ChainIdType    `json:"chainId"`
+	ChainCode        []byte                `json:"chainCode"`
 
-	Key []byte							`json:"-"`
-	Iv []byte							`json:"iv"`
+	Key []byte `json:"-"`
+	Iv  []byte `json:"iv"`
 }
 
 func (cryptedNode *CryptedNode) EnCrypt() {
 	cryptedNode.CryptoPrivateKey = aes.AesCBCEncrypt(cryptedNode.PrivateKey.Serialize(), cryptedNode.Key, cryptedNode.Iv)
 }
 
-func (cryptedNode *CryptedNode) DeCrypt() *accountTypes.Node{
+func (cryptedNode *CryptedNode) DeCrypt() *accountTypes.Node {
 	privKeyBytes := aes.AesCBCDecrypt(cryptedNode.CryptoPrivateKey, cryptedNode.Key, cryptedNode.Iv)
 	privkey, pubkey := secp256k1.PrivKeyFromBytes(privKeyBytes)
 	address := crypto.PubKey2Address(pubkey)
-	return  &accountTypes.Node{
-		Address :  &address,
-		PrivateKey : privkey,
-		ChainId : cryptedNode.ChainId,
-		ChainCode : cryptedNode.ChainCode,
+	return &accountTypes.Node{
+		Address:    &address,
+		PrivateKey: privkey,
+		ChainId:    cryptedNode.ChainId,
+		ChainCode:  cryptedNode.ChainCode,
 	}
 }
 
@@ -66,7 +66,7 @@ func NewFileStore(keyStoreDir string) FileStore {
 		}
 	}
 	return FileStore{
-		keysDirPath:keyStoreDir,
+		keysDirPath: keyStoreDir,
 	}
 }
 
@@ -96,11 +96,11 @@ func (fs FileStore) StoreKey(key *accountTypes.Node, auth string) error {
 		return err
 	}
 	cryptoNode := &CryptedNode{
-		PrivateKey : key.PrivateKey,
-		ChainId  : key.ChainId,
-		ChainCode : key.ChainCode,
-		Key : []byte(auth),
-		Iv : iv[:16],
+		PrivateKey: key.PrivateKey,
+		ChainId:    key.ChainId,
+		ChainCode:  key.ChainCode,
+		Key:        []byte(auth),
+		Iv:         iv[:16],
 	}
 	cryptoNode.EnCrypt()
 	content, err := json.Marshal(cryptoNode)
@@ -113,7 +113,7 @@ func (fs FileStore) StoreKey(key *accountTypes.Node, auth string) error {
 // ExportKey export all key in file by password
 func (fs FileStore) ExportKey(auth string) ([]*accountTypes.Node, error) {
 	persistedNodes := []*accountTypes.Node{}
-	err := common.EachChildFile(fs.keysDirPath, func (path string) (bool, error) {
+	err := common.EachChildFile(fs.keysDirPath, func(path string) (bool, error) {
 		contents, err := ioutil.ReadFile(path)
 		if err != nil {
 			log.Error("read key store error ", "Msg", err.Error())
@@ -179,7 +179,7 @@ func writeKeyFile(file string, content []byte) error {
 // DbStore use leveldb as the storegae
 type DbStore struct {
 	dbDirPath string
-	db *leveldb.DB
+	db        *leveldb.DB
 }
 
 func NewDbStore(dbStoreDir string) DbStore {
@@ -194,8 +194,8 @@ func NewDbStore(dbStoreDir string) DbStore {
 		panic(err)
 	}
 	return DbStore{
-		dbDirPath : dbStoreDir,
-		db : db,
+		dbDirPath: dbStoreDir,
+		db:        db,
 	}
 }
 
@@ -215,17 +215,17 @@ func (db *DbStore) GetKey(addr crypto.CommonAddress, auth string) (*accountTypes
 }
 
 // store the key in db after encrypto
-func (dbStore *DbStore) StoreKey(key *accountTypes.Node, auth string) error{
+func (dbStore *DbStore) StoreKey(key *accountTypes.Node, auth string) error {
 	iv, err := common.GenUnique()
 	if err != nil {
 		return err
 	}
 	cryptoNode := &CryptedNode{
-		PrivateKey : key.PrivateKey,
-		ChainId  : key.ChainId,
-		ChainCode : key.ChainCode,
-		Key : []byte(auth),
-		Iv : iv[:16],
+		PrivateKey: key.PrivateKey,
+		ChainId:    key.ChainId,
+		ChainCode:  key.ChainCode,
+		Key:        []byte(auth),
+		Iv:         iv[:16],
 	}
 	cryptoNode.EnCrypt()
 	content, err := json.Marshal(cryptoNode)
@@ -237,8 +237,8 @@ func (dbStore *DbStore) StoreKey(key *accountTypes.Node, auth string) error{
 }
 
 // ExportKey export all key in db by password
-func (dbStore *DbStore) ExportKey(auth string) ([]*accountTypes.Node, error){
-	dbStore.db.NewIterator(nil,nil)
+func (dbStore *DbStore) ExportKey(auth string) ([]*accountTypes.Node, error) {
+	dbStore.db.NewIterator(nil, nil)
 	iter := dbStore.db.NewIterator(nil, nil)
 	persistedNodes := []*accountTypes.Node{}
 	for iter.Next() {
@@ -255,11 +255,11 @@ func (dbStore *DbStore) ExportKey(auth string) ([]*accountTypes.Node, error){
 }
 
 // JoinPath return the db file path
-func (dbStore *DbStore) JoinPath(filename string) string{
+func (dbStore *DbStore) JoinPath(filename string) string {
 	if filepath.IsAbs(filename) {
-	return filename
+		return filename
 	}
-	return filepath.Join(dbStore.dbDirPath, "db")  //dbfile fixed datadir
+	return filepath.Join(dbStore.dbDirPath, "db") //dbfile fixed datadir
 }
 
 // bytesToCryptoNode cocnvert given bytes and password to a node
@@ -270,7 +270,7 @@ func bytesToCryptoNode(data []byte, auth string) (node *accountTypes.Node, errRe
 		}
 	}()
 	cryptoNode := new(CryptedNode)
-	if err :=json.Unmarshal(data,cryptoNode); err != nil {
+	if err := json.Unmarshal(data, cryptoNode); err != nil {
 		return nil, err
 	}
 	cryptoNode.Key = []byte(auth)
@@ -281,10 +281,10 @@ func bytesToCryptoNode(data []byte, auth string) (node *accountTypes.Node, errRe
 // accountCache This is used for buffering real storage and upper applications to speed up reading.
 // TODO If the write speed becomes a bottleneck, write caching can be added
 type accountCache struct {
-	store keyStore   //  This points to a de facto storage.
+	store       keyStore //  This points to a de facto storage.
 	keyStoreDir string
-	nodes []*accountTypes.Node
-	rlock sync.RWMutex
+	nodes       []*accountTypes.Node
+	rlock       sync.RWMutex
 }
 
 // NewAccountCache receive an path and password as argument
@@ -292,12 +292,12 @@ type accountCache struct {
 // password used to decrypto content in key file
 func NewAccountCache(keyStoreDir string, password string) (*accountCache, error) {
 	ac := &accountCache{
-		keyStoreDir : keyStoreDir,
-		store : NewFileStore(keyStoreDir),
+		keyStoreDir: keyStoreDir,
+		store:       NewFileStore(keyStoreDir),
 	}
 	persistedNodes, err := ac.store.ExportKey(password)
 	if err != nil {
-		return  nil, err
+		return nil, err
 	}
 	ac.nodes = persistedNodes
 	return ac, nil
@@ -305,13 +305,13 @@ func NewAccountCache(keyStoreDir string, password string) (*accountCache, error)
 
 // GetKey Get the private key by address and password
 // Notice if you wallet is locked ,private key cant be found
-func (ac *accountCache) GetKey(addr *crypto.CommonAddress, auth string) (*accountTypes.Node, error){
+func (ac *accountCache) GetKey(addr *crypto.CommonAddress, auth string) (*accountTypes.Node, error) {
 	ac.rlock.RLock()
 	defer ac.rlock.RUnlock()
 
-	for _, node := range  ac.nodes {
+	for _, node := range ac.nodes {
 		if node.Address.Hex() == addr.Hex() {
-			return  node, nil
+			return node, nil
 		}
 	}
 	return nil, errors.New("key not found")
@@ -323,28 +323,28 @@ func (ac *accountCache) ExportKey(auth string) ([]*accountTypes.Node, error) {
 }
 
 // StoreKey store key local storage medium
-func (ac *accountCache) StoreKey(k *accountTypes.Node, auth string) error{
+func (ac *accountCache) StoreKey(k *accountTypes.Node, auth string) error {
 	ac.rlock.Lock()
-	defer  ac.rlock.Unlock()
+	defer ac.rlock.Unlock()
 
 	err := ac.store.StoreKey(k, auth)
 	if err != nil {
-		return  errors.New("save key failed" + err.Error())
+		return errors.New("save key failed" + err.Error())
 	}
 	ac.nodes = append(ac.nodes, k)
-	return  nil
+	return nil
 }
 
 func (ac *accountCache) ReloadKeys(auth string) error {
 	ac.rlock.Lock()
 	defer ac.rlock.Unlock()
 
-	for _, node := range  ac.nodes {
+	for _, node := range ac.nodes {
 		if node.PrivateKey == nil {
 			key, err := ac.store.GetKey(node.Address, auth)
 			if err != nil {
 				return err
-			}else{
+			} else {
 				node.PrivateKey = key.PrivateKey
 			}
 		}
@@ -352,17 +352,17 @@ func (ac *accountCache) ReloadKeys(auth string) error {
 	return nil
 }
 
-func (ac *accountCache) ClearKeys()  {
+func (ac *accountCache) ClearKeys() {
 	ac.rlock.Lock()
 	defer ac.rlock.Unlock()
 
-	for _, node := range  ac.nodes {
+	for _, node := range ac.nodes {
 		node.PrivateKey = nil
 	}
 }
 
 // JoinPath refer to local file
-func (ac *accountCache) JoinPath(filename string) string{
+func (ac *accountCache) JoinPath(filename string) string {
 	if filepath.IsAbs(filename) {
 		return filename
 	}
