@@ -11,7 +11,7 @@ import (
 
 func main() {
 	drepApp := app.NewApp()
-	drepApp.AddService(&log.LogServiice{})
+	drepApp.AddService(&log.LogService{})
 	drepApp.AddService(&accountService.AccountService{})
 	//drepApp.AddService(&rpcService.RpcService{})
 	drepApp.AddService(&cliService.CliService{})

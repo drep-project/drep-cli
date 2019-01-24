@@ -7,21 +7,21 @@ import (
 	"path"
 )
 
-type LogServiice struct {
+type LogService struct {
 	config *LogConfig
 }
 
-func (logService *LogServiice) Name() string {
+func (logService *LogService) Name() string {
 	return "log"
 }
-func (logService *LogServiice) Api() []app.API {
+func (logService *LogService) Api() []app.API {
 	return []app.API{}
 }
-func (logService *LogServiice) Flags() []cli.Flag {
+func (logService *LogService) Flags() []cli.Flag {
 	return []cli.Flag{LogDirFlag, LogLevelFlag, VmoduleFlag, BacktraceAtFlag}
 }
 
-func (logService *LogServiice) Init(executeContext *app.ExecuteContext) error {
+func (logService *LogService) Init(executeContext *app.ExecuteContext) error {
 	phase := executeContext.GetConfig(logService.Name())
 	logService.config = &LogConfig{}
 	err := json.Unmarshal(phase, logService.config)
@@ -32,16 +32,16 @@ func (logService *LogServiice) Init(executeContext *app.ExecuteContext) error {
 	return SetUp(logService.config)
 }
 
-func (logService *LogServiice) Start(executeContext *app.ExecuteContext) error {
+func (logService *LogService) Start(executeContext *app.ExecuteContext) error {
 	return nil
 }
 
-func (logService *LogServiice) Stop(executeContext *app.ExecuteContext) error {
+func (logService *LogService) Stop(executeContext *app.ExecuteContext) error {
 	return nil
 }
 
 // setLogConfig creates an log configuration from the set command line flags,
-func (logService *LogServiice) setLogConfig(ctx *cli.Context, homeDir string) {
+func (logService *LogService) setLogConfig(ctx *cli.Context, homeDir string) {
 	logService.config = &LogConfig{}
 	if ctx.GlobalIsSet(LogLevelFlag.Name) {
 		logService.config.LogLevel = ctx.GlobalInt(LogLevelFlag.Name)
