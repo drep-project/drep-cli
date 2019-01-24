@@ -3,11 +3,12 @@ package app
 import (
 	"encoding/json"
 	"errors"
+	"gopkg.in/urfave/cli.v1"
 	"io/ioutil"
 	"os"
 	"path/filepath"
-
-	"gopkg.in/urfave/cli.v1"
+	"reflect"
+	"strings"
 
 	"github.com/drep-project/drepcli/common"
 )
@@ -40,8 +41,59 @@ func NewApp() *DrepApp {
 }
 
 // AddService add a server into context
-func (mApp DrepApp) AddService(service Service) {
+func (mApp DrepApp) addServiceInstance(service Service) {
 	mApp.Context.AddService(service)
+}
+
+// AddServiceType add many services
+func (mApp DrepApp) AddServiceType(serviceTypes ...reflect.Type) error {
+	nilService := reflect.TypeOf((*Service)(nil)).Elem()
+	for _, serviceType := range  serviceTypes {
+		serviceVal := reflect.New(serviceType)
+		if !serviceVal.Type().Implements(nilService) {
+			return errors.New("the service added not match service interface")
+		}
+		mApp.addServiceType(serviceVal)
+	}
+	return nil
+}
+
+// addServiceType add a service and iterator all service that has added in and fields in current service,
+// if exist , set set service in the field
+func (mApp DrepApp) addServiceType(serviceValue reflect.Value) {
+	serviceType := serviceValue.Type()
+	serviceNumFields := serviceType.Elem().NumField()
+	for i := 0; i < serviceNumFields; i++{
+		serviceValueField := serviceValue.Elem().Field(i)
+		serviceTypeField := serviceType.Elem().Field(i)
+		if serviceValueField.Type().Implements(reflect.TypeOf((*Service)(nil)).Elem()) {
+			refServiceName := GetServiceTag(serviceTypeField)
+			preAddServices := mApp.Context.Services
+			for _, addedService := range preAddServices {
+				if addedService.Name() == refServiceName {
+					//TODO the filed to be set must be set public field, but it wiil be better to set it as a private field ,
+					//TODO There are still some technical difficulties that need to be overcome.
+					//TODO UnsafePointer may help
+					serviceValue.Elem().Field(i).Set(reflect.ValueOf(addedService))
+				}
+			}
+		}
+	}
+	mApp.addServiceInstance(serviceValue.Interface().(Service))
+}
+
+// GetServiceTag read service tag name to match service that has added in
+func GetServiceTag(field reflect.StructField) string {
+	serviceTagStr := field.Tag.Get("service")
+	if serviceTagStr == "" {
+		return field.Name
+	}
+	serviceName := strings.Split(serviceTagStr, ",")
+	if len(serviceName) == 0 {
+		return field.Name
+	}else {
+		return serviceName[0]
+	}
 }
 
 //Run read the global configuration, parse the global command parameters,

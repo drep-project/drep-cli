@@ -2,12 +2,12 @@ package service
 
 import (
 	"fmt"
-	"gopkg.in/urfave/cli.v1"
-
 	"github.com/drep-project/drepcli/app"
 	"github.com/drep-project/drepcli/drepclient/component/console"
 	cliTypes "github.com/drep-project/drepcli/drepclient/types"
+	"github.com/drep-project/drepcli/log"
 	rpcComponent "github.com/drep-project/drepcli/rpc/component"
+	"gopkg.in/urfave/cli.v1"
 )
 
 var (
@@ -20,6 +20,7 @@ var (
 // CliService provides an interactive command line window
 type CliService struct {
 	config *cliTypes.Config
+	Log *log.LogService `service:"log"`
 }
 
 // Name name

@@ -2,27 +2,33 @@ package main
 
 import (
 	"fmt"
-
-	accountService "github.com/drep-project/drepcli/accounts/service"
-	"github.com/drep-project/drepcli/app"
-	cliService "github.com/drep-project/drepcli/drepclient/service"
 	"github.com/drep-project/drepcli/log"
+	"reflect"
+
+	"github.com/drep-project/drepcli/app"
+	rpcService "github.com/drep-project/drepcli/rpc/service"
+	accountService "github.com/drep-project/drepcli/accounts/service"
+	cliService "github.com/drep-project/drepcli/drepclient/service"
 )
 
 func main() {
 	drepApp := app.NewApp()
-	drepApp.AddService(&log.LogService{})
-	drepApp.AddService(&accountService.AccountService{})
-	//drepApp.AddService(&rpcService.RpcService{})
-	drepApp.AddService(&cliService.CliService{})
+	err := drepApp.AddServiceType(
+		reflect.TypeOf(log.LogService{}),
+		reflect.TypeOf(accountService.AccountService{}),
+		reflect.TypeOf(rpcService.RpcService{}),
+		reflect.TypeOf(cliService.CliService{}),
+	)
+	if err != nil {
+		fmt.Println(err.Error())
+	}
 
 	drepApp.Name = "drep"
-	drepApp.Author = ""
-	//app.Authors = nil
+	drepApp.Author = "Drep-Project"
 	drepApp.Email = ""
-	drepApp.Version = "1.0"
+	drepApp.Version = "0.1"
 	drepApp.HideVersion = true
-	drepApp.Copyright = "Copyright 2013-2018 The drep Authors"
+	drepApp.Copyright = "Copyright 2018 - now The drep Authors"
 
 	if err := drepApp.Run(); err != nil {
 		fmt.Println(err.Error())
