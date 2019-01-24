@@ -2,6 +2,8 @@ package app
 
 import (
 	"encoding/json"
+	"fmt"
+	"github.com/pkg/errors"
 	"gopkg.in/urfave/cli.v1"
 )
 
@@ -117,4 +119,14 @@ func (econtext *ExecuteContext) GetApis() []API {
 		apis = append(apis, service.Api()...)
 	}
 	return apis
+}
+
+//	RequireService When a service depends on another service, RequireService is used to obtain the dependent service.
+func (econtext *ExecuteContext) RequireService(name string) Service {
+	for _, service := range econtext.Services {
+		if service.Name() == name {
+			return service
+		}
+	}
+	panic(errors.New(fmt.Sprintf("%s service not found", name)))
 }

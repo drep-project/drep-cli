@@ -124,7 +124,9 @@ func loadConfigFile(ctx *cli.Context, configPath string) (map[string]json.RawMes
 
 	if !common.IsFileExists(configFile) {
 		//use default
-		return nil, errors.New("file not exits")
+		return nil, errors.New("config file not found")
+	}else{
+
 	}
 	content, err := ioutil.ReadFile(configFile)
 	if err != nil {

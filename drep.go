@@ -3,10 +3,10 @@ package main
 import (
 	"fmt"
 
-	"github.com/drep-project/drepcli/log"
+	accountService "github.com/drep-project/drepcli/accounts/service"
 	"github.com/drep-project/drepcli/app"
 	cliService "github.com/drep-project/drepcli/drepclient/service"
-	accountService "github.com/drep-project/drepcli/accounts/service"
+	"github.com/drep-project/drepcli/log"
 )
 
 func main() {
