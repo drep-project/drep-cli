@@ -112,8 +112,9 @@ func (mApp DrepApp) Run() error {
 // action used to init and run each services
 func (mApp DrepApp) action(ctx *cli.Context) error {
 	defer func() {
-		for _, service := range mApp.Context.Services {
-			err := service.Stop(mApp.Context)
+		length := len(mApp.Context.Services)
+		for i:= length; i >0; i-- {
+			err := mApp.Context.Services[i - 1].Stop(mApp.Context)
 			if err != nil {
 				return
 			}

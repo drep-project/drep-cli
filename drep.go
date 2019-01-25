@@ -20,7 +20,8 @@ func main() {
 		reflect.TypeOf(cliService.CliService{}),
 	)
 	if err != nil {
-		fmt.Println(err.Error())
+		fmt.Println(err)
+		return
 	}
 
 	drepApp.Name = "drep"
@@ -31,7 +32,7 @@ func main() {
 	drepApp.Copyright = "Copyright 2018 - now The drep Authors"
 
 	if err := drepApp.Run(); err != nil {
-		fmt.Println(err.Error())
+		fmt.Println(err)
 	}
 	return
 }
