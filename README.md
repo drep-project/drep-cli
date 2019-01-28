@@ -5,7 +5,10 @@ and send transactions.
 
 # Features
 
-// TODO:
+1. Provides a decentralized ID system and data privacy protection
+2. Integrates the underlying chain with both smart contracts and novel smart reputation pipes.
+3. Provides the DREP reputation protocols and reputation templates.
+4. Has high performance and high compatibilities.
 
 # Installation
 
