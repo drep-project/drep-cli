@@ -83,9 +83,8 @@ Meanwhile, you can input commands into the interface and perform operations to t
 ```
 * getBalance
 
-|   |   |
-|---|---|
 |Method|getBalance|
+|---|---|
 |Parameters| 1: Address<br>2: Chain id|
 |Description|Get the account's balance with respect to the address|
 |Returns|Number|
@@ -94,15 +93,14 @@ Meanwhile, you can input commands into the interface and perform operations to t
 
 * getBlock
 
-|   |   |
-|---|---|
 |Method|getBlock|
+|---|---|
 |Parameters|Block height|
 |Description|Get the corresponding block|
 |Returns|Object|
 |Example|db.getBlock(10)|
 
-```$xslt
+```json
 {
   Data: {
     TxCount: 1,
@@ -137,14 +135,14 @@ Meanwhile, you can input commands into the interface and perform operations to t
 
 * getBlocksFrom
 
-|---|---|
 |Method|getBlocksFrom|
+|---|---|
 |Parameters|1:The height of the first block to get<br>2:The number of the blocks to get|
 |Description|Get the blocks between two heights|
 |Returns|Array|
 |Example| db.getBlocksFrom(10,2)|
 
-```$xslt
+```json
 [{
     Data: {
       TxCount: 1,
@@ -175,36 +173,33 @@ Meanwhile, you can input commands into the interface and perform operations to t
 ```
 * getByteCode
 
-|   |   |
-|---|---|
 |Method|getByteCode|
-|Parameters|1:地址<br>2:链id|
-|Description|获取所有的区块数据|
+|---|---|
+|Parameters|1:Address<br>2:Chain id|
+|Description| get bytecode of a stored smart contract by its address and chainID |
 |Returns|Array|
 |Example|  chain.check("0x772dec19e0b0b2d63a57a3a7fb03fc066d915e6b","0x00") |
 
 * getCodeHash
 
-|   |   |
-|---|---|
 |Method|getCodeHash|
-|Parameters|1:地址<br>2:链id|
-|Description|获取所有的区块数据|
+|---|---|
+|Parameters|1:Address<br>2:Chain id|
+|Description|get the bytecode hash value of a smart contract by its address and chainID| 
 |Returns|Array|
 |Example|  chain.check("0x772dec19e0b0b2d63a57a3a7fb03fc066d915e6b","0x00") |
 
 
 * getHighestBlock
 
-|   |   |
-|---|---|
 |Method|getHighestBlock|
+|---|---|
 |Parameters|None|
-|Description|获取最新区块|
+|Description|Get latest block|
 |Returns|Object|
 |Example | db.getHighestBlock()|
 
-```$xslt
+```json
 {
   Data: {
     TxCount: 1,
@@ -239,25 +234,23 @@ Meanwhile, you can input commands into the interface and perform operations to t
 
 * getMaxHeight
 
-|   |   |
-|---|---|
 |Method|getMaxHeight|
+|---|---|
 |Parameters|None|
-|Description|获取当前最大区块高度|
+|Description|Get current block's height|
 |Returns|Number|
 |Example Return| db.getMaxHeight()|
 
 * getMostRecentBlocks
 
-|   |   |
-|---|---|
 |Method|getMostRecentBlocks|
-|Parameters|最新区块数量|
-|Description|获得最新的n个区块数据|
+|---|---|
+|Parameters|The number of the newest blocks |
+|Description|Get newest blocks data via the number parameter|
 |Returns|Array|
 |Example | db.getMostRecentBlocks(2)|
 
-```$xslt
+```json
 [{
     Data: {
       TxCount: 1,
@@ -288,26 +281,24 @@ Meanwhile, you can input commands into the interface and perform operations to t
 ```
 * getNonce
 
-|   |   |
-|---|---|
 |Method|getNonce|
-|Parameters|1:地址<br>2:链id|
-|Description|获取地址在链上的nonce值|
+|---|---|
+|Parameters|1:Address<br>2:Chain id|
+|Description|Get value fo nonce in the chain via address and chain id|
 |Returns|Number|
 |Example| db.getNonce("0x772dec19e0b0b2d63a57a3a7fb03fc066d915e6b","0x00")|
 
-### 链
+### Chain
 * me
 
-|   |   |
-|---|---|
 |Method|me|
+|---|---|
 |Parameters|None|
-|Description|获取当前用户信息|
+|Description|Get information about yourself|
 |Returns|Object|
 |Example Return| chain.me()|
 
-```$xslt
+```json
 {
   addr: "0x772dec19e0b0b2d63a57a3a7fb03fc066d915e6b",
   balance: 0,
@@ -318,15 +309,14 @@ Meanwhile, you can input commands into the interface and perform operations to t
 
 * check
 
-|   |   |
-|---|---|
 |Method|check|
-|Parameters|1: 地址<br>2: 链id|
-|Description|获取地址在链上的信息|
+|---|---|
+|Parameters|1: Address<br>2: Chain id|
+|Description|Get information of the chain via address|
 |Returns|Obeject|
 |Example|  chain.check("0x772dec19e0b0b2d63a57a3a7fb03fc066d915e6b","0x00") |
 
-```$xslt
+```json
 {
   Balance: 0,
   ByteCode: null,
@@ -337,129 +327,117 @@ Meanwhile, you can input commands into the interface and perform operations to t
 ```
 * checkNonce
 
-|   |   |
-|---|---|
 |Method|checkNonce|
-|Parameters|地址|
-|Description|获取地址的nonce|
+|---|---|
+|Parameters|Address|
+|Description|Get nonce via address|
 |Returns|Number|
 |Example| chain.checkNonce("0x772dec19e0b0b2d63a57a3a7fb03fc066d915e6b")|
 
 * checkBalance
 
-|   |   |
-|---|---|
 |Method|checkBalance|
-|Parameters|地址|
-|Description|获取地址的balance|
+|---|---|
+|Parameters|Address|
+|Description|Get balance via address|
 |Returns|Number|
 |Example| chain.checkBalance("0x772dec19e0b0b2d63a57a3a7fb03fc066d915e6b")|
 
 * create
 
-|   |   |
-|---|---|
 |Method|create|
-|Parameters|合约代码|
-|Description|部署合约|
+|---|---|
+|Parameters|The code of contract|
+|Description|Create contract|
 |Returns|String|
 |Example| chain.create("60806040523480...")|
 
 * call
 
-|   |   |
-|---|---|
 |Method|call|
-|Parameters|1:地址<br>2:链id<br>3:合约地址<br>4:金额<br>5:是否只读|
-|Description|调用合约|
+|---|---|
+|Parameters|1:Address<br>2:Chain id<br>3:Contract address<br>4:Amount<br>5:Whether the read-only|
+|Description|Invoke contract|
 |Returns|String|
 |Example Return| chain.call("0x772dec19e0b0b2d63a57a3a7fb03fc066d915e6b","0x00","511bede065df9c06e98ca75df9f0584f48a0a4f31a66104a5c8095377d69a60f","10",false)|
 
 * send
 
-|   |   |
-|---|---|
 |Method|getAllBlocks|
-|Parameters|1:地址<br>2:链id<br>3:转账数量|
-|Description|获取所有的区块数据|
+|---|---|
+|Parameters|1:Adress<br>2:Chain id<br>3:Amount|
+|Description|Get data of all the blocks|
 |Returns|Array|
 |Example| chain.send("0x772dec19e0b0b2d63a57a3a7fb03fc066d915e6b","0x00","10")|
 
 ### 账号
 * addressList
 
-|   |   |
-|---|---|
 |Method|addressList|
+|---|---|
 |Parameters|None|
-|Description|列出本地账号|
+|Description|Print the list  of local accounts|
 |Returns|Array|
 |Example | account.addressList()|
 
-```$xslt
+```json
 ["0x772dec19e0b0b2d63a57a3a7fb03fc066d915e6b"]
 ```
 * createAccount
 
-|   |   |
-|---|---|
 |Method|createAccount|
+|---|---|
 |Parameters|None|
-|Description|创建账号|
+|Description|Create account|
 |Returns|String|
 |Example| account.createAccount()|
 
-```$xslt
+```json
 0x772dec19e0b0b2d63a57a3a7fb03fc066d915e6b
 ```
 * dumpPrikey
 
-|   |   |
-|---|---|
 |Method|dumpPrikey|
-|Parameters|地址|
-|Description|导出私钥|
+|---|---|
+|Parameters|Address|
+|Description|Export privekey|
 |Returns|String|
 |Example| account.dumpPrikey()|
 
 * open
 
-|   |   |
-|---|---|
 |Method|open|
-|Parameters|密码|
-|Description|打开钱包|
-|Returns|none|
+|---|---|
+|Parameters|Password|
+|Description|Open wallet|
+|Returns|None|
 |Example| account.open()|
 
 * close
 
-|   |   |
-|---|---|
 |Method|close|
+|---|---|
 |Parameters|None|
-|Description|关闭钱包|
-|Returns|none|
+|Description|Close wallet|
+|Returns|None|
 |Example| account.close()|
 
 * lock
 
-|   |   |
-|---|---|
 |Method|lock|
+|---|---|
 |Parameters|None|
-|Description|锁定密码|
-|Returns|none|
+|Description|Lock password|
+|Returns|None|
 |Example| account.lock()|
 
 * unLock
 
-|   |   |
-|---|---|
 |Method|open|
-|Parameters|密码|
-|Description|解锁钱包|
-|Returns|none|
+|---|---|
+|Parameters|Password|
+|Description|Unlock wallet|
+|Returns|None|
 |Example| account.unLock()|
 
 # Contact
