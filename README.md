@@ -81,7 +81,7 @@ Meanwhile, you can input commands into the interface and perform operations to t
    }
  }...]
 ```
-* getBalance: function()
+* getBalance
 
 |   |   |
 |---|---|
@@ -92,7 +92,7 @@ Meanwhile, you can input commands into the interface and perform operations to t
 |Example|db.getBalance("0x772dec19e0b0b2d63a57a3a7fb03fc066d915e6b",0)|
 |Example Return| 0|
 
-* getBlock: function()
+* getBlock
 
 |   |   |
 |---|---|
@@ -135,7 +135,7 @@ Meanwhile, you can input commands into the interface and perform operations to t
 }
 ```
 
-* getBlocksFrom: function()
+* getBlocksFrom
 
 |---|---|
 |Method|getBlocksFrom|
@@ -173,7 +173,7 @@ Meanwhile, you can input commands into the interface and perform operations to t
     }
 }, ...]
 ```
-* getByteCode: function()
+* getByteCode
 
 |   |   |
 |---|---|
@@ -183,7 +183,7 @@ Meanwhile, you can input commands into the interface and perform operations to t
 |Returns|Array|
 |Example|  chain.check("0x772dec19e0b0b2d63a57a3a7fb03fc066d915e6b","0x00") |
 
-* getCodeHash: function()
+* getCodeHash
 
 |   |   |
 |---|---|
@@ -194,7 +194,7 @@ Meanwhile, you can input commands into the interface and perform operations to t
 |Example|  chain.check("0x772dec19e0b0b2d63a57a3a7fb03fc066d915e6b","0x00") |
 
 
-* getHighestBlock: function()
+* getHighestBlock
 
 |   |   |
 |---|---|
@@ -237,7 +237,7 @@ Meanwhile, you can input commands into the interface and perform operations to t
 }
 ```
 
-* getMaxHeight: function()
+* getMaxHeight
 
 |   |   |
 |---|---|
@@ -247,7 +247,7 @@ Meanwhile, you can input commands into the interface and perform operations to t
 |Returns|Number|
 |Example Return| db.getMaxHeight()|
 
-* getMostRecentBlocks: function()
+* getMostRecentBlocks
 
 |   |   |
 |---|---|
@@ -286,7 +286,7 @@ Meanwhile, you can input commands into the interface and perform operations to t
     }
 }]
 ```
-* getNonce: function()
+* getNonce
 
 |   |   |
 |---|---|
