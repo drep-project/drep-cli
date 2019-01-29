@@ -440,6 +440,6 @@ Meanwhile, you can input commands into the interface and perform operations to t
 |Returns|None|
 |Example| account.unLock()|
 
-# Contact
-
 # License
+
+The drep-cli library is licensed under the GNU Lesser General Public License v3.0.
