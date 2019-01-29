@@ -29,11 +29,6 @@ Clone the repository into the appropriate $GOPATH/src/github.com/drep-project di
   go install
 ```
 
-After building the source code sucessfully, you should see :
-
-// TODO
-
-
 # Usage
 
 To start the DREP Cli
