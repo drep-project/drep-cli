@@ -370,7 +370,7 @@ Meanwhile, you can input commands into the interface and perform operations to t
 |Returns|Array|
 |Example| chain.send("0x772dec19e0b0b2d63a57a3a7fb03fc066d915e6b","0x00","10")|
 
-### 账号
+### Account
 * addressList
 
 |Method|addressList|
